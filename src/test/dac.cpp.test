@@ -1,0 +1,61 @@
+#include <Arduino.h>
+
+const int pinLED = 13;
+const int pinCSLD = 3;
+const int pinSCK = 4;
+const int pinIN = 5;
+
+void pinInit()
+{
+  pinMode(pinIN, OUTPUT);
+  pinMode(pinSCK, OUTPUT);
+  pinMode(pinCSLD, OUTPUT);
+  digitalWrite(pinSCK, LOW);
+  digitalWrite(pinCSLD, HIGH);
+}
+
+void setup() {
+  pinInit();
+  pinMode(pinLED, OUTPUT);
+  Serial.begin(9600);
+}
+
+void setDAC(long chn, long val)
+{
+  long t = chn << 12;
+  t = t | val << 2;
+   
+  digitalWrite(pinCSLD, LOW);
+  for (long i = 15; i >= 0; i--)
+  { 
+    long b = (t >> i) & 1;
+    digitalWrite(pinIN, b);
+    digitalWrite(pinSCK, HIGH);
+    digitalWrite(pinSCK, LOW);  
+  }
+   
+  digitalWrite(pinCSLD, HIGH);
+}
+
+boolean ledState = false;
+int value = 0;
+
+void loop() {
+  ledState = !ledState;
+  digitalWrite(pinLED, ledState);
+  delay(2000);
+
+  value += 8;
+  if(value > 1023)
+  {
+    value = 0;
+  }
+
+  for(int i = 0; i < 8; i++)
+  {
+    setDAC(i, value);
+  }
+
+  Serial.println(":)");
+  Serial.println(value);
+}

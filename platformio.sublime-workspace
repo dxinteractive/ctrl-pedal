@@ -1,0 +1,680 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"_r",
+				"_registry"
+			],
+			[
+				"le",
+				"leaves"
+			],
+			[
+				"par",
+				"Parcel"
+			],
+			[
+				"su",
+				"submit"
+			],
+			[
+				"key",
+				"keyPath"
+			],
+			[
+				"parcel",
+				"parcelData"
+			],
+			[
+				"_t",
+				"_treeshare"
+			],
+			[
+				"re",
+				"rendered"
+			],
+			[
+				"pre",
+				"previous"
+			],
+			[
+				"get",
+				"getPath"
+			],
+			[
+				"pay",
+				"payload"
+			],
+			[
+				"payload",
+				"payloadIsMissing"
+			],
+			[
+				"meta",
+				"metaKey"
+			],
+			[
+				"MO",
+				"ModifierObject"
+			],
+			[
+				"Modif",
+				"Modifiers"
+			],
+			[
+				"MOdifi",
+				"Modifiers"
+			],
+			[
+				"_va",
+				"_valueParcelMethods"
+			],
+			[
+				"_pa",
+				"_parentParcelMethods"
+			],
+			[
+				"_action",
+				"_actionMethods"
+			],
+			[
+				"pipe",
+				"pipeWith"
+			],
+			[
+				"Parcel",
+				"ParcelConfig"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"save",
+				"Project: Save As"
+			],
+			[
+				"buildv",
+				"Disable/Enable buildview for this window"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"sav",
+				"Project: Save As"
+			],
+			[
+				"op",
+				"Project Manager: Open Project"
+			],
+			[
+				"subli",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"lint",
+				"SublimeLinter: Toggle Highlights"
+			],
+			[
+				"proj",
+				"Project: Save As"
+			],
+			[
+				"theme",
+				"Activate Materialize Theme"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"gruv",
+				"gruvbox: Select Theme"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"side",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"gru",
+				"gruvbox: Select Theme"
+			]
+		],
+		"width": 549.0
+	},
+	"console":
+	{
+		"height": 209.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/damien/projects/arduino/Ctrl",
+		"/home/damien/projects/arduino/Ctrl/lib",
+		"/home/damien/projects/arduino/Ctrl/src",
+		"/home/damien/projects/arduino/Ctrl/src/test"
+	],
+	"file_history":
+	[
+		"/home/damien/projects/Ctrl",
+		"/home/damien/projects/arduino/Ctrl/src/test/display.cpp.test",
+		"/home/damien/projects/arduino/Ctrl/src/main.cpp",
+		"/home/damien/projects/arduino/Ctrl/src/test/audio-display-dac.cpp.test",
+		"/home/damien/projects/arduino/Ctrl/src/test/hardware-spi-dac.cpp.test",
+		"/home/damien/projects/arduino/Ctrl/src/test/dac.cpp.test",
+		"/home/damien/projects/arduino/Ctrl/lib/SerialFlash/extras/rawfile-uploader.py",
+		"/home/damien/projects/arduino/Ctrl/src/test/blink.cpp.test",
+		"/home/damien/projects/arduino/Ctrl/src/test/audio.cpp.test",
+		"/home/damien/projects/arduino/Ctrl/src/test/audio-display.cpp.test",
+		"/home/damien/projects/arduino/Ctrl/src/test/display-test.cpp",
+		"/home/damien/projects/arduino/Ctrl/src/test/audio-display-test.cpp",
+		"/home/damien/projects/arduino/Ctrl/lib/Adafruit_SSD1306/Adafruit_SSD1306.cpp",
+		"/home/damien/projects/arduino/Ctrl/src/test/audio-test.cpp",
+		"/home/damien/Downloads/Adafruit_SSD1306/Adafruit_SSD1306.h",
+		"/home/damien/Downloads/Adafruit_SSD1306/Adafruit_SSD1306.cpp",
+		"/home/damien/projects/arduino/Ctrl/lib/Adafruit_SSD1306/Adafruit_SSD1306.h",
+		"/tmp/Deviot/1526192340/src/1526192340.ino",
+		"/home/damien/projects/arduino/Ctrl/src/test/blink-test.cpp",
+		"/home/damien/.cache/.fr-ja7No6/Adafruit_SSD1306/Adafruit_SSD1306.cpp",
+		"/media/damien/Yay Disk/make/arduino/Blink/Blink.ino",
+		"/home/damien/projects/arduino/Ctrl/src/test/blink.cpp",
+		"/home/damien/projects/arduino/Ctrl/src/bitshift-audio-signal-test.ino",
+		"/home/damien/projects/parcels/packages/parcels-docs/src/examples/01-simpleObjects.jsx",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/ModifyMethods.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/ModifyMethods-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/modifiers/__test__/Modifiers-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/modifiers/Modifiers.js",
+		"/home/damien/projects/parcels/packages/parcels-docs/src/examples/04-forms.jsx",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/ValueParcelMethods-test.js",
+		"/home/damien/Desktop/What accomplishments are you most proud of? Detail",
+		"/home/damien/projects/parcels/packages/parcels/src/treeshare/Treeshare.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/IdMethods-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/ValueParcelMethods.js",
+		"/home/damien/projects/parcels/packages/parcels-docs/src/examples/03-meta.jsx",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/Parcel.js",
+		"/home/damien/projects/parcels/packages/parcels/src/action/Action.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/ActionMethods.js",
+		"/home/damien/projects/parcels/packages/parcels/src/action/Reducer.js",
+		"/home/damien/projects/parcels/packages/parcels/src/action/__test__/Reducer-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/action/ActionCreators.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelId/ParcelId.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/ParcelTypes.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/TopLevelMethods.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/TopLevelMethods-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/ParcelTypes-test.js",
+		"/home/damien/projects/parcels/packages/parcels-docs/src/layouts/index.js",
+		"/home/damien/projects/parcels/packages/parcels-docs/src/layouts/example.js",
+		"/home/damien/projects/parcels/packages/parcels-docs/src/examples/01-object.jsx",
+		"/home/damien/projects/parcels/packages/parcels-docs/src/components/Example.jsx",
+		"/home/damien/projects/parcels/packages/parcels-docs/src/examples/03-form.jsx",
+		"/home/damien/projects/parcels/packages/parcels-docs/src/layouts/index.scss",
+		"/home/damien/projects/parcels/packages/parcels-docs/gatsby-node.js",
+		"/home/damien/projects/parcels/packages/parcels-docs/src/components/Markdown.jsx",
+		"/home/damien/projects/parcels/package.json",
+		"/home/damien/projects/parcels/packages/parcels-docs/package.json",
+		"/home/damien/projects/parcels/packages/parcels-docs/.cache/root.js",
+		"/home/damien/projects/parcels/packages/parcels-docs/src/layouts/fullwidth.js",
+		"/home/damien/projects/parcels/packages/parcels-docs/src/examples/02-object.jsx",
+		"/home/damien/projects/parcels/packages/parcels-react/src/PureParcel.jsx",
+		"/home/damien/projects/parcels/packages/parcels-docs/docs/home.md",
+		"/home/damien/projects/parcels/.circleci/config.yml",
+		"/home/damien/projects/parcels/packages/parcels-react/src/__test__/PureMapper-test.js",
+		"/home/damien/projects/parcels/packages/parcels-react/src/__test__/PureParcel-test.js",
+		"/home/damien/projects/parcels/packages/parcels-docs/src/examples/01-simplest.jsx",
+		"/home/damien/projects/parcels/packages/parcels-docs/src/examples/03-objectWithMeta.jsx",
+		"/home/damien/projects/parcels/packages/parcels-docs/gatsby-config.js",
+		"/home/damien/.zshrc",
+		"/home/damien/.bashrc",
+		"/home/damien/.zprofile",
+		"/home/damien/.zshrc.local",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/ParentParcelMethods-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/ElementParcelMethods-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/__test__/getIn-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/getIn.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/IndexedParcelMethods-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/types/Types.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/get.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/swapPrev.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/swapNext.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/swap.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/decodeHashKey.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/setIn.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/set.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/push.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/pop.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/insertBefore.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/insertAfter.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/has.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/delete.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/shift.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/unshift.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/updateChild.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/updateChildKeys.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/updateIn.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/forEach.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/ActionMethods-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/ParentParcelMethods.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/RootParcelMethods.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/ElementParcelMethods.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/IndexedParcelMethods.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/__test__/insertAfter-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/__test__/insertBefore-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/ChildParcelMethods.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/MethodCreator.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/ChildParcelMethods-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/ParentParcel.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/ParentParcel-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/__test__/get-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/IdMethods.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/__test__/updateChildKeys-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/ValueParcel-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/react/__test__/PureMapper-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/react/__test__/PureParcel-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelId/Id.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/ValueParcel.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/__test__/strip-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/strip.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/Find Results",
+		"/home/damien/projects/parcels/lerna-debug.log",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/IndexedParcel.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/Parcel-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/__test__/ParcelFactory-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/reducer/Action.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/IndexedParcel-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/reducer/__test__/Action-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/react/PureMapper.jsx",
+		"/home/damien/projects/parcels/packages/parcels/src/reducer/ActionCreators.js"
+	],
+	"find":
+	{
+		"height": 70.0
+	},
+	"find_in_files":
+	{
+		"height": 170.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"pinCSLD",
+			"i",
+			"pinCSLD",
+			"OLED_RESET",
+			"OLED_CS",
+			"OLED_DC",
+			");\n",
+			"setup",
+			"pinCSLD",
+			"value",
+			"address",
+			"CSDAC",
+			"pinSCK",
+			"ledPin",
+			"//",
+			"CSDAC",
+			"led",
+			"bool",
+			"SPI.",
+			"//",
+			".clear(",
+			"hwSPI",
+			"Adafruit_SSD1306",
+			"spi",
+			"display(",
+			"display",
+			"hard",
+			"testdrawbitmap",
+			"SPI",
+			"hardwa",
+			"hardwao",
+			"dim",
+			"swap",
+			"SSD1306_128_64",
+			"SSD1306_LCDHEIGHT",
+			"heigh",
+			"hei",
+			"Height",
+			"hard",
+			"Trans"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 70.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.deviot":
+	{
+		"height": 768.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "platformio.sublime-project",
+	"replace":
+	{
+		"height": 60.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"mode",
+				"packages/parcels/src/modifiers/Modifiers.js"
+			],
+			[
+				"form",
+				"packages/parcels-docs/src/examples/04-forms.jsx"
+			],
+			[
+				"value",
+				"packages/parcels/src/parcel/__test__/ValueParcelMethods-test.js"
+			],
+			[
+				"tree",
+				"packages/parcels/src/treeshare/Treeshare.js"
+			],
+			[
+				"idm",
+				"packages/parcels/src/parcel/__test__/IdMethods-test.js"
+			],
+			[
+				"tre",
+				"packages/parcels/src/treeshare/Treeshare.js"
+			],
+			[
+				"red",
+				"packages/parcels/src/action/Reducer.js"
+			],
+			[
+				"action",
+				"packages/parcels/src/action/Action.js"
+			],
+			[
+				"p",
+				"packages/parcels/src/parcel/Parcel.js"
+			],
+			[
+				"parc",
+				"packages/parcels/src/parcel/Parcel.js"
+			],
+			[
+				"reduc",
+				"packages/parcels/src/action/Reducer.js"
+			],
+			[
+				"type",
+				"packages/parcels/src/types/Types.js"
+			],
+			[
+				"par",
+				"packages/parcels/src/parcel/Parcel.js"
+			],
+			[
+				"types",
+				"packages/parcels/src/types/Types.js"
+			],
+			[
+				"reducer",
+				"packages/parcels/src/action/__test__/Reducer-test.js"
+			],
+			[
+				"re",
+				"packages/parcels/src/action/Reducer.js"
+			],
+			[
+				"a",
+				"packages/parcels/src/action/Action.js"
+			],
+			[
+				"act",
+				"packages/parcels/src/action/Action.js"
+			],
+			[
+				"actionc",
+				"packages/parcels/src/action/ActionCreators.js"
+			],
+			[
+				"modifiers",
+				"packages/parcels/src/modifiers/Modifiers.js"
+			],
+			[
+				"actionm",
+				"packages/parcels/src/parcel/ActionMethods.js"
+			],
+			[
+				"ac",
+				"packages/parcels/src/action/Action.js"
+			],
+			[
+				"t",
+				"packages/parcels/src/types/Types.js"
+			],
+			[
+				"parce",
+				"packages/parcels/src/parcel/Parcel.js"
+			],
+			[
+				"modifyme",
+				"packages/parcels/src/parcel/ModifyMethods.js"
+			],
+			[
+				"modif",
+				"packages/parcels/src/parcel/ModifyMethods.js"
+			],
+			[
+				"elem",
+				"packages/parcels/src/parcel/ElementParcelMethods.js"
+			],
+			[
+				"indexed",
+				"packages/parcels/src/parcel/IndexedParcelMethods.js"
+			],
+			[
+				"actioncreators",
+				"packages/parcels/src/action/ActionCreators.js"
+			],
+			[
+				"parent",
+				"packages/parcels/src/parcel/ParentParcelMethods.js"
+			],
+			[
+				"parentpar",
+				"packages/parcels/src/parcel/__test__/ParentParcel-test.js"
+			],
+			[
+				"parentp",
+				"packages/parcels/src/parcel/ParentParcel.js"
+			],
+			[
+				"parentpa",
+				"packages/parcels/src/parcel/ParentParcel.js"
+			],
+			[
+				"purepa",
+				"packages/parcels/src/react/__test__/PureParcel-test.js"
+			],
+			[
+				"puremapper",
+				"packages/parcels/src/react/__test__/PureMapper-test.js"
+			],
+			[
+				"vlu",
+				"packages/parcels/src/parcel/__test__/ValueParcel-test.js"
+			],
+			[
+				"modify",
+				"packages/parcels/src/parcel/__test__/ModifyMethods-test.js"
+			],
+			[
+				"updatec",
+				"packages/parcels/src/parcelData/updateChildKeys.js"
+			],
+			[
+				"purema",
+				"packages/parcels/src/react/__test__/PureMapper-test.js"
+			],
+			[
+				"actiont",
+				"packages/parcels/src/reducer/ActionCreators.js"
+			],
+			[
+				"pa",
+				"packages/parcels/src/parcel/Parcel.js"
+			],
+			[
+				"parcel",
+				"packages/parcels/src/parcel/Parcel.js"
+			],
+			[
+				"ty",
+				"packages/parcels/src/types/Types.js"
+			],
+			[
+				"idfiltermodifiers",
+				"packages/parcels/src/parcelId/filterModifiers.js"
+			],
+			[
+				"stripparceldata",
+				"proto-parcels/src/util/stripParcelData.js"
+			],
+			[
+				"na",
+				"parcels/packages/parcels-docs/src/components/Navigation.jsx"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 377.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

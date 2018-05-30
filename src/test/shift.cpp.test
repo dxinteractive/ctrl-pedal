@@ -1,0 +1,49 @@
+#include <Arduino.h>
+#include <SPI.h>
+
+const int pinLED = 13;
+const int pinSR = 8;
+
+void pinInit()
+{
+  pinMode(pinSR, OUTPUT);
+  digitalWrite(pinSR, HIGH);
+}
+
+void setup() {
+  SPI.setMOSI(7);
+  SPI.setSCK(14);
+  pinInit();
+
+  SPI.begin();
+  
+  pinMode(pinLED, OUTPUT);
+  Serial.begin(9600);
+}
+
+void shift(int value)
+{
+  digitalWrite(pinSR,LOW);
+  SPI.beginTransaction(SPISettings(4000000, MSBFIRST, SPI_MODE0));
+  SPI.transfer(value);
+  SPI.endTransaction();
+  digitalWrite(pinSR,HIGH);    
+}
+
+boolean ledState = false;
+int value = 0;
+
+void loop() {
+  ledState = !ledState;
+  digitalWrite(pinLED, ledState);
+  delay(300);
+
+  value++;
+  if(value > 255)
+    value = 0;
+
+  shift(value);
+
+  Serial.println(":)");
+  Serial.println(value);
+}
