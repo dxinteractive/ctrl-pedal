@@ -5,17 +5,23 @@
 			"cmd":
 			[
 				"platformio",
-				"-f", "-c", "sublimetext",
+				"-f",
+				"-c",
+				"sublimetext",
 				"run"
 			],
 			"name": "PlatformIO",
+			"path": "/home/damien/.platformio/penv/bin:/home/damien/.nvm/versions/node/v9.11.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games",
+			"selector": "source.c, source.c++",
 			"variants":
 			[
 				{
 					"cmd":
 					[
 						"platformio",
-						"-f", "-c", "sublimetext",
+						"-f",
+						"-c",
+						"sublimetext",
 						"run"
 					],
 					"name": "Build"
@@ -24,7 +30,9 @@
 					"cmd":
 					[
 						"platformio",
-						"-f", "-c", "sublimetext",
+						"-f",
+						"-c",
+						"sublimetext",
 						"run",
 						"--target",
 						"clean"
@@ -35,7 +43,9 @@
 					"cmd":
 					[
 						"platformio",
-						"-f", "-c", "sublimetext",
+						"-f",
+						"-c",
+						"sublimetext",
 						"test"
 					],
 					"name": "Test"
@@ -44,7 +54,9 @@
 					"cmd":
 					[
 						"platformio",
-						"-f", "-c", "sublimetext",
+						"-f",
+						"-c",
+						"sublimetext",
 						"run",
 						"--target",
 						"upload"
@@ -55,7 +67,9 @@
 					"cmd":
 					[
 						"platformio",
-						"-f", "-c", "sublimetext",
+						"-f",
+						"-c",
+						"sublimetext",
 						"run",
 						"--target",
 						"program"
@@ -66,7 +80,9 @@
 					"cmd":
 					[
 						"platformio",
-						"-f", "-c", "sublimetext",
+						"-f",
+						"-c",
+						"sublimetext",
 						"run",
 						"--target",
 						"uploadfs"
@@ -77,15 +93,15 @@
 					"cmd":
 					[
 						"platformio",
-						"-f", "-c", "sublimetext",
+						"-f",
+						"-c",
+						"sublimetext",
 						"update"
 					],
 					"name": "Update platforms and libraries"
 				}
 			],
-			"working_dir": "${project_path:${folder}}",
-			"selector": "source.c, source.c++",
-			"path": "/home/damien/.platformio/penv/bin:/home/damien/.nvm/versions/node/v9.11.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+			"working_dir": "${project_path:${folder}}"
 		}
 	],
 	"folders":
@@ -94,11 +110,10 @@
 			"path": "."
 		}
 	],
-    "settings":
-    {
-         "sublimegdb_workingdir": "/home/damien/projects/arduino/Ctrl",
-         "sublimegdb_exec_cmd": "-exec-continue",
-         "sublimegdb_commandline": "/usr/local/bin/platformio -f -c sublimetext debug --interface=gdb --interpreter=mi -x .pioinit"
-
-    }
+	"settings":
+	{
+		"sublimegdb_commandline": "/usr/local/bin/platformio -f -c sublimetext debug --interface=gdb --interpreter=mi -x .pioinit",
+		"sublimegdb_exec_cmd": "-exec-continue",
+		"sublimegdb_workingdir": "/home/damien/projects/arduino/Ctrl"
+	}
 }

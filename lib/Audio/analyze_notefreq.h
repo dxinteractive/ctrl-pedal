@@ -37,7 +37,7 @@
  *                      or B(flat)0.                                   *
  *                                                                     *
  ***********************************************************************/
-#define AUDIO_GUITARTUNER_BLOCKS  24
+#define AUDIO_GUITARTUNER_BLOCKS  9
 /***********************************************************************/
 class AudioAnalyzeNoteFrequency : public AudioStream {
 public:

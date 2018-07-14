@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"print",
+				"println"
+			],
+			[
+				"_Sc",
+				"_scaleId"
+			],
+			[
+				"_scales",
+				"_scalesTotal"
+			],
+			[
+				"Scale",
+				"Scale12TET"
+			],
+			[
 				"_r",
 				"_registry"
 			],
@@ -104,6 +120,18 @@
 		"selected_items":
 		[
 			[
+				"dele",
+				"File: Delete"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"op",
+				"Project Manager: Open Project"
+			],
+			[
 				"save",
 				"Project: Save As"
 			],
@@ -118,10 +146,6 @@
 			[
 				"sav",
 				"Project: Save As"
-			],
-			[
-				"op",
-				"Project Manager: Open Project"
 			],
 			[
 				"subli",
@@ -189,20 +213,37 @@
 	"expanded_folders":
 	[
 		"/home/damien/projects/arduino/Ctrl",
-		"/home/damien/projects/arduino/Ctrl/lib",
 		"/home/damien/projects/arduino/Ctrl/src",
-		"/home/damien/projects/arduino/Ctrl/src/test"
+		"/home/damien/projects/arduino/Ctrl/src/pitch"
 	],
 	"file_history":
 	[
+		"/home/damien/projects/arduino/Ctrl/src/pitch/PitchIdentifier.h",
+		"/home/damien/projects/arduino/Ctrl/src/pitch/PitchIdentifier.cpp",
+		"/home/damien/projects/arduino/Ctrl/src/main.cpp",
+		"/home/damien/projects/arduino/Ctrl/src/pitch/Scale12TET.h",
+		"/home/damien/projects/arduino/Ctrl/src/log.h",
+		"/opt/arduino-1.8.5/lib/teensyduino.txt",
+		"/home/damien/projects/arduino/Ctrl/src/pitch/Scale.h",
+		"/home/damien/projects/arduino/Ctrl/src/test/boxed-test.cpp.test",
+		"/home/damien/projects/arduino/Ctrl/src/test/blink.cpp.test",
+		"/home/damien/projects/arduino/Ctrl/src/thing.txt",
+		"/home/damien/projects/arduino/Ctrl/lib/Audio/examples/Analysis/NoteFrequency/NoteFrequency.ino",
+		"/home/damien/projects/arduino/Ctrl/platformio.sublime-project",
+		"/media/damien/Yay Disk/make/arduino/bitshift-v2/src/audio_default.h",
+		"/home/damien/projects/arduino/Blend2/src/main.cpp",
+		"/home/damien/projects/arduino/Ctrl/.editorconfig",
+		"/home/damien/projects/arduino/Blend2/src/uistate/StateBase.h",
+		"/home/damien/projects/arduino/Blend2/src/model/Router.cpp",
+		"/home/damien/projects/arduino/Ctrl/src/PitchIdentifier.h",
+		"/home/damien/projects/arduino/Blend2/src/uistate/StateBlendSelector.cpp",
+		"/home/damien/projects/arduino/Ctrl/lib/Audio/analyze_notefreq.h",
 		"/home/damien/projects/Ctrl",
 		"/home/damien/projects/arduino/Ctrl/src/test/display.cpp.test",
-		"/home/damien/projects/arduino/Ctrl/src/main.cpp",
 		"/home/damien/projects/arduino/Ctrl/src/test/audio-display-dac.cpp.test",
 		"/home/damien/projects/arduino/Ctrl/src/test/hardware-spi-dac.cpp.test",
 		"/home/damien/projects/arduino/Ctrl/src/test/dac.cpp.test",
 		"/home/damien/projects/arduino/Ctrl/lib/SerialFlash/extras/rawfile-uploader.py",
-		"/home/damien/projects/arduino/Ctrl/src/test/blink.cpp.test",
 		"/home/damien/projects/arduino/Ctrl/src/test/audio.cpp.test",
 		"/home/damien/projects/arduino/Ctrl/src/test/audio-display.cpp.test",
 		"/home/damien/projects/arduino/Ctrl/src/test/display-test.cpp",
@@ -304,25 +345,7 @@
 		"/home/damien/projects/parcels/packages/parcels/src/parcel/ParentParcel.js",
 		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/ParentParcel-test.js",
 		"/home/damien/projects/parcels/packages/parcels/src/parcelData/__test__/get-test.js",
-		"/home/damien/projects/parcels/packages/parcels/src/parcel/IdMethods.js",
-		"/home/damien/projects/parcels/packages/parcels/src/parcelData/__test__/updateChildKeys-test.js",
-		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/ValueParcel-test.js",
-		"/home/damien/projects/parcels/packages/parcels/src/react/__test__/PureMapper-test.js",
-		"/home/damien/projects/parcels/packages/parcels/src/react/__test__/PureParcel-test.js",
-		"/home/damien/projects/parcels/packages/parcels/src/parcelId/Id.js",
-		"/home/damien/projects/parcels/packages/parcels/src/parcel/ValueParcel.js",
-		"/home/damien/projects/parcels/packages/parcels/src/parcelData/__test__/strip-test.js",
-		"/home/damien/projects/parcels/packages/parcels/src/parcelData/strip.js",
-		"/home/damien/projects/parcels/packages/parcels/src/parcel/Find Results",
-		"/home/damien/projects/parcels/lerna-debug.log",
-		"/home/damien/projects/parcels/packages/parcels/src/parcel/IndexedParcel.js",
-		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/Parcel-test.js",
-		"/home/damien/projects/parcels/packages/parcels/src/__test__/ParcelFactory-test.js",
-		"/home/damien/projects/parcels/packages/parcels/src/reducer/Action.js",
-		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/IndexedParcel-test.js",
-		"/home/damien/projects/parcels/packages/parcels/src/reducer/__test__/Action-test.js",
-		"/home/damien/projects/parcels/packages/parcels/src/react/PureMapper.jsx",
-		"/home/damien/projects/parcels/packages/parcels/src/reducer/ActionCreators.js"
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/IdMethods.js"
 	],
 	"find":
 	{
@@ -338,9 +361,49 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"i",
+			"i2s1",
+			"PIN_SWITCH_BYPASS",
+			"PitchIdentifier",
+			"Scale12TET",
+			"pitch",
+			"note",
+			"_scales",
+			"presetId",
+			"Preset",
+			"Blender",
+			"preset",
+			"Preset",
+			"getPresetsTotal",
+			"Preset",
+			"getPresetsTotal",
+			"Preset",
+			"preset",
+			"Preset",
+			"preset",
+			"Preset",
+			"PresetId",
+			"presetId",
+			"Preset",
+			"pitchIdentifier",
+			"presets",
+			"SCALES",
+			"SCALE_H",
+			"StateBase",
+			"STATE_BASE_H",
+			"getZPositionLabel",
+			"()",
+			"pitchIdentifier",
+			"note",
+			"ROUTER_H",
+			" ",
+			"AUDIO_GUITARTUNER_BLOCKS",
+			"notefreq1",
+			"peak1",
+			"PIN_SWITCH_BYPASS",
 			"pinCSLD",
 			"i",
 			"pinCSLD",
