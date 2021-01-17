@@ -4,20 +4,8 @@
 		"selected_items":
 		[
 			[
-				"print",
-				"println"
-			],
-			[
-				"_Sc",
-				"_scaleId"
-			],
-			[
-				"_scales",
-				"_scalesTotal"
-			],
-			[
-				"Scale",
-				"Scale12TET"
+				"rece",
+				"receiveData"
 			],
 			[
 				"_r",
@@ -107,6 +95,26 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "src/main.cpp",
+			"settings":
+			{
+				"buffer_size": 8632,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "0:1\n0:2\n0:3\n0:4\n0:5\n0:7\n0:8\n0:9\n0:10\n0:11\n0:12\n0:13\n0:14\n0:13\n0:12\n0:11\n0:10\n0:9\n0:8\n0:7\n0:6\n0:5\n0:4\n0:3\n0:4\n0:5\n0:7\n0:8\n0:9\n0:8\n0:7\n0:6\n0:5\n0:4\n0:3\n0:1\n0:0\n0:-1\n0:-2\n0:-3\n0:-4\n0:-3\n0:-2\n0:-1\n0:0\n0:1\n0:2\n0:4\n0:5\n0:6\n0:7\n0:8\n0:9\n0:10\n0:12\n0:13\n0:14\n0:15\n0:16\n0:15\n0:14\n0:13\n0:12\n0:11\n0:10\n0:9\n0:8\n0:7\n0:5\n0:4\n0:3\n0:2\n0:1\n0:3\n0:4\n0:5\n0:6\n0:7\n0:8\n0:9\n0:10\n0:11\n0:12\n0:11\n0:10\n0:9\n0:8\n0:9\n0:11\n0:12\n0:13\n0:14\n0:15\n0:16\n0:17\n0:19\n0:20\n0:21\n0:23\n0:24\n2:1\n2:0\n2:1\n2:0\n3:1\n3:0\n1:1\n1:0\n\n[SENT] h\n\n\n[SENT] d\n\n\n[SENT] d\n\n\n[SENT] d\n\n\n[SENT] d\n\n\n[SENT] d\n\n\n[SENT] d\n\n\n[SENT] d\n\n\n[SENT] d\n\n\n[SENT] d\n\n0:5\n0:7\n0:8\n0:9\n0:10\n0:11\n0:12\n0:13\n0:14\n0:15\n0:16\n0:15\n0:14\n0:12\n0:11\n0:10\n0:9\n0:8\n0:7\n0:6\n0:7\n0:8\n0:9\n0:8\n0:9\n0:8\n\n[SENT] 12345\n\n{ATE1 E0AT}\n\n[SENT] 12345\n\n{12345}\n\n[SENT] h\n\n{h}\n\n[SENT] hi\n\n{hi}\n\n[SENT] hii\n\n{hii}\n\n[SENT] hiii\n\n{hiii}\n\n[SENT] hiiii\n\n{hiiii}\n\n[SENT] 1\n\n{1}\n\n[SENT] 12\n\n{12}\n\n[SENT] 13\n\n{13}\n\n[SENT] 1234\n\n{1234}\n\n[SENT] 12345\n\n{12345}\n\n[SENT] 123456\n\n{123456}\n\n[SENT] p\n\n{p}\n\n[SENT] 0:1234\n\n{0:1234}\n5:2\n5:1\n5:2\n5:1\n0:17\n0:19\n0:20\n0:21\n0:23\n0:24\n0:26\n0:27\n0:28\n0:29\n0:28\n0:27\n0:25\n0:24\n0:23\n0:22\n0:21\n0:20\n0:25\n0:26\n0:28\n0:29\n0:30\n0:31\n0:32\n0:33\n0:34\n0:35\n0:36\n0:35\n0:34\n0:33\n0:32\n0:31\n0:30\n0:29\n0:28\n\n[SENT] 01:1\n\n...ATE1 E0AT1\n[SENT] 01:1\n\n...01:11\n[SENT] 0:1234\n\n...0:1234234\n[SENT] 0:1234\n\n...0:1234234\n[SENT] 01:999\n\n...01:999999\n[SENT] 01:999\n\n...01:999999\n[SENT] 01:888\n\n...01:8888880:-14\n0:-13\n0:-12\n0:-11\n0:-10\n0:-9\n0:-8\n\n[SENT] 01:1\n\ngot 48\ngot 49\ngot 58\ngot 49\ngot 10\n2\n[SENT] 01:10\n\ngot 48\ngot 49\ngot 58\ngot 49\ngot 48\ngot 10\n20\n[SENT] 01:39\n\ngot 48\ngot 49\ngot 58\ngot 51\ngot 57\ngot 10\n780:9\n0:11\n0:12\n0:14\n0:15\n0:16\n0:17\n0:19\n0:20\n\n[SENT] 00:0\n\ngot 48\ngot 48\ngot 58\ngot 48\ngot 10\n\n[SENT] 10:0\n\ngot 49\ngot 48\ngot 58\ngot 48\ngot 10\n\n[SENT] 10:1\n\ngot 49\ngot 48\ngot 58\ngot 49\ngot 10\n\n[SENT] 20:0\n\ngot 50\ngot 48\ngot 58\ngot 48\ngot 10\n\n[SENT] 20:200\n\ngot 50\ngot 48\ngot 58\ngot 50\ngot 48\ngot 48\ngot 10\n\n[SENT] 20:100\n\ngot 50\ngot 48\ngot 58\ngot 49\ngot 48\ngot 48\ngot 10\n0:11\n0:10\n0:9\n0:8\n0:7\n0:6\n0:4\n0:5\n0:7\n0:8\n0:9\n0:10\n0:11\n0:12\n0:13\n0:12\n\n[SENT] 00:0\n\n?\n0:1\n0:2\n0:3\n0:4\n0:5\n0:6\n0:8\n0:9\n0:8\n0:7\n0:5\n0:4\n0:3\n0:2\n0:1\n0:0\n0:1\n0:2\n0:3\n0:4\n0:3\n0:2\n0:1\n0:0\n\n[SENT] 00:0\n\nSET_CV\n10\n0\n\n[SENT] 00:4\n\nSET_CV\n0\n4\n\n[SENT] 00:4\n\nSET_CV\n0\n4\n\n[SENT] 10:0\n\nSET_TAP\n0\n0\n\n[SENT] 10:1\n\nSET_TAP\n0\n1\n\n[SENT] 20:222\n\nSET_LED\n0\n222\n\n[SENT] 21:222\n\nSET_LED\n1\n222\n\n[SENT] 21:122\n\nSET_LED\n1\n122\n\n[SENT] 21:22\n\nSET_LED\n1\n22\n\n[SENT] 10:1\n\nSET_TAP\n0\n1\n\n[SENT] 10:1\n\n0:7\n0:6\n0:4\n0:3\n0:2\n0:1\n0:0\n0:-1\n0:0\n0:1\n0:2\n0:3\n0:4\n\n[SENT] 10:666\n\n?\n\n[SENT] 10:666\n\nSET_TAP\n0\n666\n\n[SENT] 20:1\n\nSET_LED\n0\n1\n\n[SENT] 00:1\n\nSET_CV\n0\n1\n\n[SENT] 00:1000\n\nSET_CV\n0\n1000\n\n[SENT] 10:1000\n\nSET_TAP\n0\n1000\n\n[SENT] 04:1000\n\nSET_CV\n4\n1000\n\n[SENT] 14:1\n\nSET_TAP\n4\n1\n\n[SENT] 20:244\n\nSET_LED\n0\n244\n\n[SENT] 21:244\n\nSET_LED\n1\n244\n\n[SENT] 21:0\n\nSET_LED\n1\n0\n\n[SENT] 00:1000\n\nSET_CV\n0\n1000\n\n[SENT] 01:1000\n\nSET_CV\n1\n1000\n\n[SENT] 02:1000\n\nSET_CV\n2\n1000\n\n[SENT] 03:1000\n\nSET_CV\n3\n1000\n\n[SENT] 04:1000\n\nSET_CV\n4\n1000\n\n[SENT] 05:1000\n\nSET_CV\n5\n1000\n\n[SENT] 05:700\n\nSET_CV\n5\n700\n\n[SENT] 05:500\n\nSET_CV\n5\n500\n\n[SENT] 05:400\n\nSET_CV\n5\n400\n\n[SENT] 05:100\n\nSET_CV\n5\n100\n\n[SENT] 05:0\n\nSET_CV\n5\n0\n\n[SENT] 05:0\n\nSET_CV\n5\n0\n\n[SENT] 05:1\n\nSET_CV\n5\n1\n\n[SENT] 05:60\n\nSET_CV\n5\n60\n\n[SENT] 05:20\n\nSET_CV\n5\n20\n\n[SENT] 05:0\n\nSET_CV\n5\n0\n\n[SENT] 05:1023\n\nSET_CV\n5\n1023\n\n[SENT] 05:0\n\nSET_CV\n5\n0\n\n[SENT] 05:1023\n\nSET_CV\n5\n1023\n\n[SENT] 05:0\n\nSET_CV\n5\n0\n\n[SENT] 05:100\n\nSET_CV\n5\n100\n0:5\n0:6\n0:7\n0:8\n0:9\n0:10\n0:11\n0:12\n0:11\n0:10\n0:9\n\n[SENT] 05:0\n\n?\n\n[SENT] 05:0\n\nSET_CV\n5\n0\n\n[SENT] 00:100\n\nSET_CV\n0\n100\n\n[SENT] 01:100\n\nSET_CV\n1\n100\n\n[SENT] 02:100\n\nSET_CV\n2\n100\n\n[SENT] 03:100\n\nSET_CV\n3\n100\n\n[SENT] 04:100\n\nSET_CV\n4\n100\n\n[SENT] 05:100\n\nSET_CV\n5\n100\n\n[SENT] 06:100\n\nSET_CV\n6\n100\n\n[SENT] 00:0\n\nSET_CV\n0\n0\n\n[SENT] 01:0\n\nSET_CV\n1\n0\n\n[SENT] 02:0\n\nSET_CV\n2\n0\n\n[SENT] 03:0\n\nSET_CV\n3\n0\n\n[SENT] 04:0\n\nSET_CV\n4\n0\n\n[SENT] 05:0\n\nSET_CV\n5\n0\n\n[SENT] 06:0\n\nSET_CV\n6\n0\n\n[SENT] 07:0\n\nSET_CV\n7\n0\n\n[SENT] 08:0\n\nSET_CV\n8\n0\n\n[SENT] 00:0\n\nSET_CV\n0\n0\n\n[SENT] 00:0\n\nSET_CV\n0\n0\n\n[SENT] 01:100\n\nSET_CV\n1\n100\n\n[SENT] 00:100\n\nSET_CV\n0\n100\n\n[SENT] 01:100\n\nSET_CV\n1\n100\n\n[SENT] 02:100\n\nSET_CV\n2\n100\n\n[SENT] 03:100\n\nSET_CV\n3\n100\n\n[SENT] 04:100\n\nSET_CV\n4\n100\n\n[SENT] 05:100\n\nSET_CV\n5\n100\n\n[SENT] 06:100\n\nSET_CV\n6\n100\n\n[SENT] 07:100\n\nSET_CV\n7\n100\n\n[SENT] 00:0\n\nSET_CV\n0\n0\n\n[SENT] 01:0\n\nSET_CV\n1\n0\n\n[SENT] 02:0\n\nSET_CV\n2\n0\n\n[SENT] 00:0\n\nSET_CV\n0\n0\n\n[SENT] 03:0\n\nSET_CV\n3\n0\n\n[SENT] 04:0\n\nSET_CV\n4\n0\n\n[SENT] 00:100\n\nSET_CV\n0\n100\n\n[SENT] 01:100\n\nSET_CV\n1\n100\n\n[SENT] 02:100\n\nSET_CV\n2\n100\n\n[SENT] 01:100\n\nSET_CV\n1\n100\n\n[SENT] 00:100\n\nSET_CV\n0\n100\n\n[SENT] 03:100\n\nSET_CV\n3\n100\n\n[SENT] 09:100\n\nSET_CV\n9\n100\n\n[SENT] 10:100\n\nSET_TAP\n0\n100\n\n[SENT] 11:100\n\nSET_TAP\n1\n100\n\n[SENT] 12:100\n\nSET_TAP\n2\n100\n\n[SENT] 13:100\n\nSET_TAP\n3\n100\n\n[SENT] 14:100\n\nSET_TAP\n4\n100\n\n[SENT] 15:100\n\nSET_TAP\n5\n100\n\n[SENT] 16:100\n\nSET_TAP\n6\n100\n\n[SENT] 17:100\n\nSET_TAP\n7\n100\n\n[SENT] 05:100\n\n0:1\n0:2\n0:3\n0:4\n0:5\n0:6\n0:7\n\n[SENT] 05:100\n\n?\n\n[SENT] 17:100\n\nSET_TAP\n7\n100\n\n[SENT] 05:100\n\nSET_CV\n5\n100\n\n[SENT] 00:100\n\nSET_CV\n0\n100\n\n[SENT] 01:100\n\nSET_CV\n1\n100\n\n[SENT] 02:100\n\nSET_CV\n2\n100\n\n[SENT] 03:100\n\nSET_CV\n3\n100\n\n[SENT] 04:100\n\nSET_CV\n4\n100\n\n[SENT] 05:100\n\nSET_CV\n5\n100\n\n[SENT] 06:100\n\nSET_CV\n6\n100\n\n[SENT] 07:100\n\nSET_CV\n7\n100\n\n[SENT] 08:100\n\nSET_CV\n8\n100\n\n[SENT] 09:100\n\nSET_CV\n9\n100\n0:1\n0:4\n0:5\n0:8\n0:9\n0:12\n0:10\n0:8\n0:7\n0:5\n0:4\n\n[SENT] 00:100\n\n?\n\n[SENT] \n\n?\n\n[SENT] 00:100\n\nSET_CV\n0\n100\nsetcv 5 100\n[SENT] 00:0\n\nSET_CV\n0\n0\nsetcv 5 0\n[SENT] 00:0\n\nSET_CV\n0\n0\nsetcv 5 0\n[SENT] 00:100\n\nSET_CV\n0\n100\nsetcv 5 100\n[SENT] 00:0\n\nSET_CV\n0\n0\nsetcv 5 0\n[SENT] 00:1\n\nSET_CV\n0\n1\nsetcv 5 1\n[SENT] 00:1024\n\nSET_CV\n0\n1024\nsetcv 5 1024\n[SENT] 00:1023\n\nSET_CV\n0\n1023\nsetcv 5 1023\n[SENT] 00:100\n\nSET_CV\n0\n100\nsetcv 5 100\n[SENT] 00:00\n\nSET_CV\n0\n0\nsetcv 5 0\n[SENT] 00:255\n\nSET_CV\n0\n255\nsetcv 5 255\n[SENT] 00:455\n\nSET_CV\n0\n455\nsetcv 5 455\n[SENT] 00:655\n\nSET_CV\n0\n655\nsetcv 5 655\n[SENT] 00:455\n\nSET_CV\n0\n455\nsetcv 5 455\n[SENT] 00:555\n\nSET_CV\n0\n555\nsetcv 5 555\n[SENT] 00:455\n\nSET_CV\n0\n455\nsetcv 5 455\n[SENT] 00:400\n\nSET_CV\n0\n400\nsetcv 5 4003:1\n3:0\n\n[SENT] 00:0\n\nSET_CV\n0\n0\nsetcv 5 00:-6\n0:-4\n0:-2\n0:0\n0:1\n0:3\n0:4\n0:3\n0:0\n0:-1\n0:-2\n0:-4\n0:-5\n0:-4\n\n[SENT] 00:0\n\n?\n\n[SENT] 00:0\n\nSET_CV\n0\n0\nsetcv 5 0 - 80 0.\n0:8\n0:6\n0:4\n0:2\n0:0\n0:-1\n0:-4\n0:-2\n0:0\n0:2\n0:4\n0:5\n0:4\n\n[SENT] 00:0\n\n?\n\n[SENT] \n\n?\n\n[SENT] \n\n?\n\n[SENT] 00:0\n\nSET_CV\n0\n0\nsetcv 5 0 - 80 0.\n\n[SENT] 00:1024\n\nSET_CV\n0\n1024\nsetcv 5 1024 - 80 4096.\n\n[SENT] 00:1024\n\nSET_CV\n0\n1024\nsetcv 5 1024 - 80 4096.\n\n[SENT] 00:0\n\nSET_CV\n0\n0\nsetcv 5 0 - 80 0.\n\n[SENT] 00:1024\n\nSET_CV\n0\n1024\nsetcv 5 1024 - 80 4096.\n\n[SENT] 00:1023\n\nSET_CV\n0\n1023\nsetcv 5 1023 - 95 4092.\n\n[SENT] 00:0\n\nSET_CV\n0\n0\nsetcv 5 0 - 80 0.\n\n[SENT] 00:1023\n\nSET_CV\n0\n1023\nsetcv 5 1023 - 95 4092.\n\n[SENT] 01:0\n\nSET_CV\n1\n0\nsetcv 6 0 - 96 0.\n\n[SENT] 00:0\n\nSET_CV\n0\n0\nsetcv 5 0 - 80 0.\n\n[SENT] 02:0\n\nSET_CV\n2\n0\nsetcv 0 0 - 0 0.\n\n[SENT] 02:999\n\nSET_CV\n2\n999\nsetcv 0 999 - 15 3996.\n\n[SENT] 09:999\n\n0:7\n0:8\n0:10\n0:12\n0:10\n0:8\n0:5\n0:4\n\n[SENT] 08:66\n\n?\n\n[SENT] 08:66\n\nSET_CV\n8\n66\nsetcv 20 66 - 321 264.\n\n[SENT] 08:999\n\nSET_CV\n8\n999\nsetcv 20 999 - 335 3996.\n\n[SENT] 07:999\n\nSET_CV\n7\n999\nsetcv 3 999 - 63 3996.\n0:5\n0:6\n0:3\n0:0\n0:-1\n0:-4\n0:-6\n0:-8\n0:-7\n0:-5\n0:-4\n0:-3\n0:-2\n0:-1\n0:0\n\n[SENT] 20:222\n\n0:3\n0:4\n0:6\n0:8\n\n[SENT] 20:222\n\n?\n\n[SENT] 07:999\n\nSET_CV\n7\n999\nsetcv 3 999 - 63 3996.\n0:9\n0:10\n0:11\n0:12\n\n[SENT] 20:222\n\nSET_LED\n0\n222\n\n[SENT] 21:222\n\nSET_LED\n1\n222\n\n[SENT] 07:999\n\n0:6\n0:5\n0:4\n0:3\n0:2\n0:1\n0:0\n0:1\n0:2\n0:4\n0:5\n\n[SENT] 07:0\n\n?\n\n[SENT] 07:0\n\nSET_CV\n7\n0\nsetcv 3 0 - 48 0.\n\n[SENT] 07:100\n\nSET_CV\n7\n100\nsetcv 3 100 - 49 400.\n\n[SENT] 06:100\n\nSET_CV\n6\n100\nsetcv 2 100 - 33 400.\n\n[SENT] 05:100\n\nSET_CV\n5\n100\nsetcv 4 100 - 65 400.\n\n[SENT] 04:100\n\nSET_CV\n4\n100\nsetcv 1 100 - 17 400.\n\n[SENT] 04:0\n\nSET_CV\n4\n0\nsetcv 1 0 - 16 0.\n\n[SENT] 03:0\n\nSET_CV\n3\n0\nsetcv 7 0 - 112 0.\n\n[SENT] 03:100\n\nSET_CV\n3\n100\nsetcv 7 100 - 113 400.\n\n[SENT] 02:100\n\nSET_CV\n2\n100\nsetcv 0 100 - 1 400.\n\n[SENT] 01:100\n\nSET_CV\n1\n100\nsetcv 6 100 - 97 400.\n\n[SENT] 00:100\n\nSET_CV\n0\n100\nsetcv 5 100 - 81 400.\n0:-8\n0:-7\n0:-5\n0:-4\n0:-2\n0:-1\n0:0\n0:1\n0:2\n0:3\n0:2\n0:1\n0:-1\n0:-2\n0:-3\n0:-4\n0:-5\n0:-4\n0:-2\n0:-1\n0:1\n0:3\n0:2\n0:1\n0:-1\n0:-2\n0:-3\n0:-4\n0:-5\n0:-4\n0:-2\n0:-1\n0:0\n0:1\n0:2\n0:0\n0:-1\n0:-2\n0:-1\n0:-2\n\n[SENT] 08:0\n\n?\n\n[SENT] 08:0\n\nSET_CV\n8\n0\nsetcv 20 0 - 320 0.\n\n[SENT] 07:100\n\nSET_CV\n7\n100\nsetcv 3 100 - 49 400.\n\n[SENT] 03:100\n\nSET_CV\n3\n100\nsetcv 7 100 - 113 400.\n\n[SENT] 02:100\n\nSET_CV\n2\n100\nsetcv 8 100 - 129 400.\n\n[SENT] 00:100\n\nSET_CV\n0\n100\nsetcv 5 100 - 81 400.\n\n[SENT] 01:100\n\nSET_CV\n1\n100\nsetcv 6 100 - 97 400.\n\n[SENT] 02:100\n\nSET_CV\n2\n100\nsetcv 8 100 - 129 400.\n\n[SENT] 03:100\n\nSET_CV\n3\n100\nsetcv 7 100 - 113 400.\n\n[SENT] 04:100\n\nSET_CV\n4\n100\nsetcv 1 100 - 17 400.\n\n[SENT] 05:100\n\nSET_CV\n5\n100\nsetcv 4 100 - 65 400.\n\n[SENT] 06:100\n\nSET_CV\n6\n100\nsetcv 2 100 - 33 400.\n\n[SENT] 07:100\n\nSET_CV\n7\n100\nsetcv 3 100 - 49 400.\n\n[SENT] 20:222\n\n",
+			"settings":
+			{
+				"buffer_size": 8725,
+				"line_ending": "Unix",
+				"name": "[ Deviot 2.2.2 ] Serial Monitor | /dev/ttyACM0",
+				"read_only": true,
+				"scratch": true
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -120,20 +128,24 @@
 		"selected_items":
 		[
 			[
-				"dele",
-				"File: Delete"
+				"Deviot: ",
+				"Deviot: Device(s)"
 			],
 			[
-				"remove",
-				"Package Control: Remove Package"
+				"package",
+				"Package Control: List Packages"
 			],
 			[
-				"op",
-				"Project Manager: Open Project"
+				"dev",
+				"Deviot: About Deviot"
 			],
 			[
 				"save",
 				"Project: Save As"
+			],
+			[
+				"op",
+				"Project Manager: Open Project in New Window"
 			],
 			[
 				"buildv",
@@ -213,37 +225,27 @@
 	"expanded_folders":
 	[
 		"/home/damien/projects/arduino/Ctrl",
-		"/home/damien/projects/arduino/Ctrl/src",
-		"/home/damien/projects/arduino/Ctrl/src/pitch"
+		"/home/damien/projects/arduino/Ctrl/src"
 	],
 	"file_history":
 	[
-		"/home/damien/projects/arduino/Ctrl/src/pitch/PitchIdentifier.h",
-		"/home/damien/projects/arduino/Ctrl/src/pitch/PitchIdentifier.cpp",
-		"/home/damien/projects/arduino/Ctrl/src/main.cpp",
-		"/home/damien/projects/arduino/Ctrl/src/pitch/Scale12TET.h",
-		"/home/damien/projects/arduino/Ctrl/src/log.h",
-		"/opt/arduino-1.8.5/lib/teensyduino.txt",
-		"/home/damien/projects/arduino/Ctrl/src/pitch/Scale.h",
+		"/home/damien/projects/arduino/Ctrl/platformio.ini",
+		"/tmp/Deviot/1610751263/src/1610751263.ino",
 		"/home/damien/projects/arduino/Ctrl/src/test/boxed-test.cpp.test",
-		"/home/damien/projects/arduino/Ctrl/src/test/blink.cpp.test",
-		"/home/damien/projects/arduino/Ctrl/src/thing.txt",
-		"/home/damien/projects/arduino/Ctrl/lib/Audio/examples/Analysis/NoteFrequency/NoteFrequency.ino",
+		"/home/damien/projects/arduino/Ctrl/src/main.cpp",
+		"/home/damien/projects/arduino/Ctrl/src/test/audio-display-dac-shift-led.cpp.test",
 		"/home/damien/projects/arduino/Ctrl/platformio.sublime-project",
-		"/media/damien/Yay Disk/make/arduino/bitshift-v2/src/audio_default.h",
-		"/home/damien/projects/arduino/Blend2/src/main.cpp",
-		"/home/damien/projects/arduino/Ctrl/.editorconfig",
-		"/home/damien/projects/arduino/Blend2/src/uistate/StateBase.h",
-		"/home/damien/projects/arduino/Blend2/src/model/Router.cpp",
-		"/home/damien/projects/arduino/Ctrl/src/PitchIdentifier.h",
-		"/home/damien/projects/arduino/Blend2/src/uistate/StateBlendSelector.cpp",
-		"/home/damien/projects/arduino/Ctrl/lib/Audio/analyze_notefreq.h",
+		"/home/damien/Desktop/What accomplishments are you most proud of? Detail",
+		"/home/damien/projects/arduino/Ctrl/src/test/audio-display-dac-shift.cpp.test",
+		"/home/damien/projects/arduino/Ctrl/src/test/shift.cpp.test",
+		"/home/damien/projects/arduino/Ctrl/src/test/audio-display-dac.cpp.test",
+		"/home/damien/projects/parcels.sublime-project",
 		"/home/damien/projects/Ctrl",
 		"/home/damien/projects/arduino/Ctrl/src/test/display.cpp.test",
-		"/home/damien/projects/arduino/Ctrl/src/test/audio-display-dac.cpp.test",
 		"/home/damien/projects/arduino/Ctrl/src/test/hardware-spi-dac.cpp.test",
 		"/home/damien/projects/arduino/Ctrl/src/test/dac.cpp.test",
 		"/home/damien/projects/arduino/Ctrl/lib/SerialFlash/extras/rawfile-uploader.py",
+		"/home/damien/projects/arduino/Ctrl/src/test/blink.cpp.test",
 		"/home/damien/projects/arduino/Ctrl/src/test/audio.cpp.test",
 		"/home/damien/projects/arduino/Ctrl/src/test/audio-display.cpp.test",
 		"/home/damien/projects/arduino/Ctrl/src/test/display-test.cpp",
@@ -266,7 +268,6 @@
 		"/home/damien/projects/parcels/packages/parcels/src/modifiers/Modifiers.js",
 		"/home/damien/projects/parcels/packages/parcels-docs/src/examples/04-forms.jsx",
 		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/ValueParcelMethods-test.js",
-		"/home/damien/Desktop/What accomplishments are you most proud of? Detail",
 		"/home/damien/projects/parcels/packages/parcels/src/treeshare/Treeshare.js",
 		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/IdMethods-test.js",
 		"/home/damien/projects/parcels/packages/parcels/src/parcel/ValueParcelMethods.js",
@@ -345,15 +346,25 @@
 		"/home/damien/projects/parcels/packages/parcels/src/parcel/ParentParcel.js",
 		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/ParentParcel-test.js",
 		"/home/damien/projects/parcels/packages/parcels/src/parcelData/__test__/get-test.js",
-		"/home/damien/projects/parcels/packages/parcels/src/parcel/IdMethods.js"
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/IdMethods.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/__test__/updateChildKeys-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/ValueParcel-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/react/__test__/PureMapper-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/react/__test__/PureParcel-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelId/Id.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/ValueParcel.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/__test__/strip-test.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcelData/strip.js",
+		"/home/damien/projects/parcels/packages/parcels/src/parcel/Find Results",
+		"/home/damien/projects/parcels/lerna-debug.log"
 	],
 	"find":
 	{
-		"height": 70.0
+		"height": 78.0
 	},
 	"find_in_files":
 	{
-		"height": 170.0,
+		"height": 182.0,
 		"where_history":
 		[
 			""
@@ -364,46 +375,114 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"i",
-			"i2s1",
+			"CVS",
+			"PIN_CV_CS",
+			"4000000",
+			"'",
+			"setCV",
+			"char",
+			"SET_LED",
+			"things",
+			"3",
+			"shiftRegister",
+			"'",
+			"SEND",
+			"MAX_INPUT",
+			"input_pos",
+			"input_line",
+			"MAX_INPUT",
+			"receiveByte",
+			"prevMillis",
+			"Serial.",
+			"serialSend",
+			"tempBuffer",
+			"newData",
+			"receivedChars",
+			"newData",
+			"numChars",
+			"        ",
+			"serialReceive",
+			"receiveValue",
+			"sendValue",
+			"peak",
+			"WHITE",
+			"setText",
+			"serialData",
+			"delayTime",
+			"peak",
+			"SEND_BYPASS_SWITCH",
+			"SEND_TOTAL",
+			"SEND_TAP_BUTTON",
+			"32",
+			"exp2",
+			"exp1",
+			"EXP_1",
+			"exp1",
+			"a2",
+			"a1",
+			"A1",
+			"a0",
+			"a1",
+			"20",
+			"sendValue",
+			"ticks",
+			"time",
+			"Time",
+			"time",
+			"Time",
+			"time",
+			"count",
+			"    display",
+			"display",
+			"Display",
+			"display",
+			"sendValue",
+			"lastValue",
+			"SEND_BYPASS_SWITCH",
+			"SEND_ROTARY_BUTTON",
+			"pe",
+			" = 1",
+			"#define ",
+			"PIN_TAP_BUTTON",
+			"PIN_BUTTON_TAP",
 			"PIN_SWITCH_BYPASS",
-			"PitchIdentifier",
-			"Scale12TET",
-			"pitch",
-			"note",
-			"_scales",
-			"presetId",
-			"Preset",
-			"Blender",
-			"preset",
-			"Preset",
-			"getPresetsTotal",
-			"Preset",
-			"getPresetsTotal",
-			"Preset",
-			"preset",
-			"Preset",
-			"preset",
-			"Preset",
-			"PresetId",
-			"presetId",
-			"Preset",
-			"pitchIdentifier",
-			"presets",
-			"SCALES",
-			"SCALE_H",
-			"StateBase",
-			"STATE_BASE_H",
-			"getZPositionLabel",
-			"()",
-			"pitchIdentifier",
-			"note",
-			"ROUTER_H",
-			" ",
-			"AUDIO_GUITARTUNER_BLOCKS",
-			"notefreq1",
-			"peak1",
+			"PIN_ROTARY_BUTTON",
+			"PIN_BUTTON_ROTARY",
+			"PIN_ROTARY_1",
+			"delayTime",
+			"delayMulti",
+			"  // ",
+			"255",
+			"analogWrite",
+			"PIN_BUTTON_TAP",
+			"        //",
+			"        ",
+			"peak",
+			"notefreq",
+			"peak",
+			"notefreq",
+			"incomingdata",
+			"Serial",
+			"delayMulti",
+			"ROTARY",
+			"rotary",
+			"PIN_ROTARY_2",
+			"print",
+			"setSR",
+			"PIN_CV_CS",
 			"PIN_SWITCH_BYPASS",
+			"count",
+			"HIGH",
+			"PIN_SR_CS",
+			"SR_CS",
+			"PIN_SR_CS",
+			"pinSR",
+			"setDAC",
+			"PIN_CV_CS",
+			"setDAC",
+			"pinCSLD",
+			"value",
+			"SPISe",
 			"pinCSLD",
 			"i",
 			"pinCSLD",
@@ -423,27 +502,7 @@
 			"led",
 			"bool",
 			"SPI.",
-			"//",
-			".clear(",
-			"hwSPI",
-			"Adafruit_SSD1306",
-			"spi",
-			"display(",
-			"display",
-			"hard",
-			"testdrawbitmap",
-			"SPI",
-			"hardwa",
-			"hardwao",
-			"dim",
-			"swap",
-			"SSD1306_128_64",
-			"SSD1306_LCDHEIGHT",
-			"heigh",
-			"hei",
-			"Height",
-			"hard",
-			"Trans"
+			"//"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -461,18 +520,81 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src/main.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8632,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4693,
+								4693
+							]
+						],
+						"settings":
+						{
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/Deviot (Arduino IDE)/deviot.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4404.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8725,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8584,
+								8584
+							]
+						],
+						"settings":
+						{
+							"default_dir": "/home/damien/projects/arduino/Ctrl/src",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 52013.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 32.0
+		"height": 40.0
 	},
 	"input":
 	{
-		"height": 70.0
+		"height": 78.0
 	},
 	"layout":
 	{
@@ -503,17 +625,17 @@
 	},
 	"output.deviot":
 	{
-		"height": 768.0
+		"height": 508.0
 	},
 	"output.find_results":
 	{
 		"height": 0.0
 	},
 	"pinned_build_system": "",
-	"project": "platformio.sublime-project",
+	"project": "Ctrl.sublime-project",
 	"replace":
 	{
-		"height": 60.0
+		"height": 76.0
 	},
 	"save_all_on_build": true,
 	"select_file":

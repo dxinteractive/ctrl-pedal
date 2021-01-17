@@ -22,7 +22,7 @@ void PitchIdentifier::identify(float freq) {
     float higher = frequencies[step + 1];
     float remainder = (freq - lower) / (higher - lower);
 
-    _pitch = ((float)step) + remainder;
+    _pitch = ((float)step) + remainder + (octaveShift * steps);
 
     if(remainder > 0.5) {
         step++;
@@ -30,7 +30,13 @@ void PitchIdentifier::identify(float freq) {
     }
 
     _step = step;
-    _octave = octaveShift;
-    _centsOffset = (int)(remainder * 100.0);
-    _note = _scale->names()[_step];
+}
+
+int PitchIdentifier::pitchToOctave(int pitch) {
+    return pitch / _scale->steps();
+}
+
+char const* PitchIdentifier::pitchToNote(int pitch) {
+    int step = pitch % _scale->steps();
+    return _scale->names()[step];
 }
