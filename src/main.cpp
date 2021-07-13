@@ -8,11 +8,10 @@
 
 AudioInputI2S i2sInput;
 AudioAnalyzeNoteFrequency notefreq; // AUDIO_GUITARTUNER_BLOCKS = 9
+// https://forum.pjrc.com/threads/32252-Different-Range-FFT-Algorithm/page4
 AudioAnalyzePeak peak;
-AudioAnalyzeRMS rms;
 AudioConnection patchCord1(i2sInput, 1, notefreq, 0);
 AudioConnection patchCord2(i2sInput, 1, peak, 0);
-AudioConnection patchCord3(i2sInput, 1, rms, 0);
 
 // AudioSynthToneSweep tonesweep1;
 // AudioOutputI2S i2sOuptut;
@@ -237,8 +236,10 @@ void setup() {
   // LEDs
   pinMode(PIN_LED_1, OUTPUT);
   pinMode(PIN_LED_2, OUTPUT);
-  digitalWrite(PIN_LED_1, LOW);
-  digitalWrite(PIN_LED_2, LOW);
+  analogWriteFrequency(PIN_LED_1, 30000.0);
+  analogWriteFrequency(PIN_LED_2, 30000.0);
+  analogWrite(PIN_LED_1, 0);
+  analogWrite(PIN_LED_2, 0);
 
   // buttons
   pinMode(PIN_ROTARY_BUTTON, INPUT_PULLUP);
@@ -270,6 +271,14 @@ void setup() {
   display.clearDisplay();
   display.display();
 
+  // route
+  setAudioRoute(false);
+
+  // initial CV
+  for(int i = 0; i < 8; i++) {
+    setCV(CVS[i], 1023);
+  }
+
   // test tone
   // setAudioRoute(true);
   // tonesweep1.play(1.0, 50.0, 1000.0, 100.0);
@@ -280,7 +289,7 @@ unsigned long prevTime;
 unsigned long ticks;
 
 float peakValue = 0;
-float rmsValue = 0;
+int freq = 0;
 
 void updateDisplay() {
   display.clearDisplay();
@@ -292,7 +301,8 @@ void updateDisplay() {
   display.println(ticks);
   display.setTextSize(1);
   display.println(peakValue);
-  display.println(rmsValue);
+  display.print(freq);
+  display.println(" Hz");
   display.println(audioOutputPath);
   display.display();
 }
@@ -324,25 +334,34 @@ void loop() {
     setLed(PIN_LED_1, digitalRead(PIN_BYPASS_SWITCH) == LOW ? 0 : 128);
   }
 
-  // once per 128ms = ~8Hz
-  if(ticks % 128 == 0) {
-    analogRead(EXP_1);
-    serialSend(SEND_EXP_1, analogRead(EXP_1));
+  // once per 32ms = ~8Hz
+  if(ticks % 32 == 0) {
+    // analogRead(EXP_1);
+    // serialSend(SEND_EXP_1, analogRead(EXP_1));
   }
 
-  // once per 128ms = ~8Hz
-  if((ticks + 64) % 128 == 0) {
-    analogRead(EXP_2);
-    serialSend(SEND_EXP_2, analogRead(EXP_2));
+  // once per 32ms = ~8Hz
+  if((ticks + 16) % 32 == 0) {
+    // analogRead(EXP_2);
+    // int read = analogRead(EXP_2);
+    // serialSend(SEND_EXP_2, read);
+
+    //setCV(CVS[0], read); // dmm
+    //setCV(CVS[1], read); // pitchfork
+    //setCV(CVS[2], read);
+    //setCV(CVS[3], read);
+    //setCV(CVS[4], read); // wizard
+    //setCV(CVS[5], read); // bigsky
+    //setCV(CVS[4], read);
+    //setCV(CVS[5], read);
+    //setCV(CVS[6], read);
+    //setCV(CVS[7], read);
   }
 
   // once per 4ms = ~250Hz
   if(ticks % 4 == 0) {
     if(peak.available()) {
       peakValue = peak.read();
-    }
-    if(rms.available()) {
-      rmsValue = rms.read();
     }
   }
 
@@ -357,37 +376,11 @@ void loop() {
     Serial.println(".");
   }
 
-  // cv += (16 * cvDir);
-  // if(cv > 1023)
-  // {
-  //   cvDir = -1;
-  //   cv = 1023;
-  // } else if(cv < 0) {
-  //   cvDir = 1;
-  //   cv = 0;
-  // }
-
-  // for(int j = 0; j < 8; j++)
-  //   setCV(j, cv);
-
-  // setSR(ticks >> 5);
-
-  // setLed(PIN_LED_1, (ticks << 2) & 255);
-  // setLed(PIN_LED_2, 252 - ((ticks << 2) & 255));
-
-
-
-
-  // if(notefreq.available()) {
-  //     float newFreq = notefreq.read();
-  //     freq += (newFreq - freq) * 0.3;
-  //     pitchIdentifier.identify(freq);
-  //     pitch = pitchIdentifier.pitch();
-  //     display.setCursor(64,0);
-  //     display.println(freq);
-  // }
-
-
+  if(notefreq.available()) {
+    freq = notefreq.read();
+  } else {
+    freq = 0;
+  }
 
   // int cpuusage = AudioProcessorUsageMax();
   // display.print("CPU: ");
