@@ -71,12 +71,17 @@ void setup() {
   // LEDs
   pinMode(PIN_LED_1, OUTPUT);
   pinMode(PIN_LED_2, OUTPUT);
+  analogWriteFrequency(PIN_LED_1, 30000.0);
+  analogWriteFrequency(PIN_LED_2, 30000.0);
   digitalWrite(PIN_LED_1, LOW);
   digitalWrite(PIN_LED_2, LOW);
 
+  analogWrite(PIN_LED_1, 0);
+  analogWrite(PIN_LED_2, 0);
+
   // buttons
-  pinMode(PIN_BUTTON_ROTARY, INPUT);
-  pinMode(PIN_BUTTON_TAP, INPUT);
+  pinMode(PIN_BUTTON_ROTARY, INPUT_PULLUP);
+  pinMode(PIN_BUTTON_TAP, INPUT_PULLUP);
   pinMode(PIN_SWITCH_BYPASS, INPUT_PULLUP);
 
   // audio
@@ -141,15 +146,15 @@ void loop() {
   {
     cvDir = -1;
     cv = 1023;
+    setSR(255);
   } else if(cv < 0) {
     cvDir = 1;
     cv = 0;
+    setSR(0);
   }
 
   for(int j = 0; j < 8; j++)
     setCV(j, cv);
-
-  setSR(count >> 5);
 
   analogWrite(PIN_LED_1, (count << 2) & 255);
   analogWrite(PIN_LED_2, 255 - ((count << 2) & 255));

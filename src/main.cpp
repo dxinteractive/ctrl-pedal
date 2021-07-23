@@ -6,19 +6,78 @@
 #include <Audio.h>
 #include <Encoder.h>
 
+//
+// oscilloscope
+//
+
+const int OSCOPE_TABLE_SIZE = 128;
+const float OSCOPE_BASE_HZ = AUDIO_SAMPLE_RATE / OSCOPE_TABLE_SIZE;
+
+class AudioOscilloscope : public AudioStream {
+  public:
+    AudioOscilloscope(void): AudioStream(1, inputQueueArray) {}
+
+    volatile int16_t table[OSCOPE_TABLE_SIZE];
+
+    void update(void) {
+      audio_block_t *block;
+      block = receiveReadOnly();
+      if (!block) return;
+
+      while(readIndex < OSCOPE_TABLE_SIZE) {
+        table[writeIndex] = block->data[(int)readIndex];
+        readIndex += readRate;
+        writeIndex++;
+        if(writeIndex >= OSCOPE_TABLE_SIZE) {
+          writeIndex = 0;
+        }
+      }
+      readIndex -= OSCOPE_TABLE_SIZE;
+
+      transmit(block);
+      release(block);
+    }
+
+    void setRate(float freq) {
+      if(freq > 0.0) {
+        float newReadRate = fmod(OSCOPE_BASE_HZ / freq * 4.0, OSCOPE_TABLE_SIZE);
+        __disable_irq();
+        readRate = newReadRate;
+        __enable_irq();
+      }
+    }
+
+  private:
+    audio_block_t *inputQueueArray[1];
+    int writeIndex = 0;
+    float readIndex = 0.0;
+    float readRate = 1.0;
+};
+
+//
+// audio patching
+//
+
 AudioInputI2S i2sInput;
-AudioAnalyzeNoteFrequency notefreq; // AUDIO_GUITARTUNER_BLOCKS = 9
+AudioAnalyzeNoteFrequency notefreq;
+AudioOscilloscope oscope;
+
 // https://forum.pjrc.com/threads/32252-Different-Range-FFT-Algorithm/page4
 AudioAnalyzePeak peak;
 AudioConnection patchCord1(i2sInput, 1, notefreq, 0);
 AudioConnection patchCord2(i2sInput, 1, peak, 0);
+AudioConnection patchCord3(i2sInput, 1, oscope, 0);
 
-// AudioSynthToneSweep tonesweep1;
-// AudioOutputI2S i2sOuptut;
-// AudioConnection patchCord3(tonesweep1, 0, i2sOuptut, 0);
-// AudioConnection patchCord4(tonesweep1, 0, i2sOuptut, 1);
+AudioSynthToneSweep tonesweep1;
+AudioOutputI2S i2sOuptut;
+AudioConnection patchCord4(tonesweep1, 0, i2sOuptut, 0);
+AudioConnection patchCord5(tonesweep1, 0, i2sOuptut, 1);
 
 AudioControlSGTL5000 audioAdaptor;
+
+//
+// consts
+//
 
 #define PIN_OLED_DC        0
 #define PIN_OLED_RESET     1
@@ -77,6 +136,10 @@ static const int LED_BRIGHTNESS_TABLE[] = {
   0xFC, 0xFC, 0xFC, 0xFC, 0xFC, 0xFC, 0xFC, 0xFC, 0xFD, 0xFD, 0xFD, 0xFD, 0xFD, 0xFD, 0xFD, 0xFD,
   0xFD, 0xFD, 0xFD, 0xFD, 0xFD, 0xFD, 0xFD, 0xFE, 0xFE, 0xFE, 0xFE, 0xFE, 0xFE, 0xFE, 0xFF, 0xFF
 };
+
+//
+// peripherals
+//
 
 Adafruit_SSD1306 display(PIN_OLED_DC, PIN_OLED_RESET, PIN_OLED_CS);
 
@@ -167,6 +230,9 @@ void serialSend(int id, int value) {
 //
 // Serial receive
 //
+// e.g. 00:1023 - set CV (0) wizard (4) to 5V (1023)
+// e.g. 10:1    - toggle audio from teensy
+// e.g. 21:128  - set LED (2) number [1] to 128
 
 void serialReceive(const char * data, int len) {
   const char * valueString = data + 3;
@@ -219,6 +285,51 @@ void serialReceiveByte(const byte inByte) {
 }
 
 //
+// tuner
+//
+
+
+// #define TUNER_BUCKETS_TOTAL 400;
+// float tunerBuckets[TUNER_BUCKETS_TOTAL];
+
+// #define TUNER_SCALE_STEPS_MAX 100;
+// float tunerScaleStepNames[TUNER_SCALE_STEPS_MAX];
+// int tunerScaleSize = 12;
+// int tunerScaleRootHz = 440;
+
+// void tunerSetEdo(int edo) {
+//   tunerScaleSize = edo;
+
+//   float halfStepRatio = exp2(0.5 / edo);
+//   float fullStepRatio = halfStepRatio * halfStepRatio;
+//   float currentRatio = 1.0;
+//   float nextStepRatio = halfStepRatio;
+
+//   for(int i = 0; i < TUNER_BUCKETS_TOTAL; i++) {
+//     if(currentRatio > nextStepRatio) {
+//       currentRatio *= fullStepRatio;
+//       nextStepRatio *= fullStepRatio;
+//     }
+//     tunerBuckets[i] = tunerScaleRootHz * currentRatio;
+//   }
+
+//   for(int i = 0; i < edo; i++) {
+//     tunerScaleStepNames[i] = i;
+//   }
+// }
+
+// float tunerGetTargetHz(float hz) {
+//   while(hz > tunerScaleRootHz * 2.0) {
+//     hz *= 0.5;
+//   }
+//   while(hz < tunerScaleRootHz) {
+//     hz *= 2.0;
+//   }
+//   tunerBuckets[];
+// }
+
+
+//
 // Setup
 //
 
@@ -248,7 +359,7 @@ void setup() {
 
   // audio
   AudioMemory(90);
-  notefreq.begin(0.03);
+  notefreq.begin(0.99);
 
   audioAdaptor.enable();
   audioAdaptor.inputSelect(AUDIO_INPUT_LINEIN);
@@ -280,8 +391,7 @@ void setup() {
   }
 
   // test tone
-  // setAudioRoute(true);
-  // tonesweep1.play(1.0, 50.0, 1000.0, 100.0);
+  tonesweep1.play(1.0, 500.0, 1000.0, 100.0);
 }
 
 unsigned long time;
@@ -294,16 +404,30 @@ int freq = 0;
 void updateDisplay() {
   display.clearDisplay();
   display.setTextColor(INVERSE);
-  display.setTextSize(2);
   display.setCursor(0,0);
-  display.println(":)");
   display.setTextSize(1);
-  display.println(ticks);
-  display.setTextSize(1);
-  display.println(peakValue);
+  display.print(ticks);
+  display.print(" ");
+  // for(int i = 0; i < 10; i++) {
+  //   if(peakValue * 10 > i) {
+  //     display.print("-");
+  //   } else {
+  //     display.print(" ");
+  //   }
+  // }
+  // display.println("");
   display.print(freq);
   display.println(" Hz");
-  display.println(audioOutputPath);
+
+  for(int i = 0; i < 128; i++) {
+    int y = 32 - (oscope.table[i] >> 10);
+    display.drawPixel(i, y, WHITE);
+  }
+
+  int cpuusage = AudioProcessorUsageMax();
+  display.print("CPU: ");
+  display.println(cpuusage);
+
   display.display();
 }
 
@@ -376,13 +500,8 @@ void loop() {
     Serial.println(".");
   }
 
-  if(notefreq.available()) {
+  if(notefreq.available() && peakValue > 0.1 && notefreq.probability() > 0.8) {
     freq = notefreq.read();
-  } else {
-    freq = 0;
+    oscope.setRate(freq);
   }
-
-  // int cpuusage = AudioProcessorUsageMax();
-  // display.print("CPU: ");
-  // display.println(cpuusage);
 }

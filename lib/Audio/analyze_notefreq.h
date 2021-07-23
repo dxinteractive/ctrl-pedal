@@ -37,7 +37,7 @@
  *                      or B(flat)0.                                   *
  *                                                                     *
  ***********************************************************************/
-#define AUDIO_GUITARTUNER_BLOCKS  9
+#define AUDIO_GUITARTUNER_BLOCKS  12
 /***********************************************************************/
 class AudioAnalyzeNoteFrequency : public AudioStream {
 public:
@@ -47,9 +47,9 @@ public:
      *  @return none
      */
     AudioAnalyzeNoteFrequency( void ) : AudioStream( 1, inputQueueArray ), enabled( false ), new_output(false) {
-        
+
     }
-    
+
     /**
      *  initialize variables and start conversion
      *
@@ -59,7 +59,7 @@ public:
      *  @return none
      */
     void begin( float threshold );
-    
+
     /**
      *  sets threshold value
      *
@@ -67,7 +67,7 @@ public:
      *  @return none
      */
     void threshold( float p );
-    
+
     /**
      *  triggers true when valid frequency is found
      *
@@ -80,21 +80,21 @@ public:
      *  @return frequency in hertz
      */
     float read( void );
-    
+
     /**
      *  get predicitity
      *
      *  @return probability of frequency found
      */
     float probability( void );
-    
+
     /**
      *  Audio Library calls this update function ~2.9ms
      *
      *  @return none
      */
     virtual void update( void );
-    
+
 private:
     /**
      *  check the sampled data for fundamental frequency
@@ -107,14 +107,14 @@ private:
      *  @return tau
      */
     uint16_t estimate( uint64_t *yin, uint64_t *rs, uint16_t head, uint16_t tau );
-    
+
     /**
      *  process audio data
      *
      *  @return none
      */
     void process( void );
-    
+
     /**
      *  Variables
      */
