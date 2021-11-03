@@ -3,6 +3,9 @@
 	[
 		{
 			"path": "."
+		},
+		{
+			"path": "/home/damien/projects/arduino/Blend2"
 		}
 	]
 }

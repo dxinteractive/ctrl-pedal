@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"TUNER_BU",
+				"TUNER_BUCKETS_TOTAL"
+			],
+			[
 				"SEND_ROTA",
 				"SEND_ROTARY_BUTTON"
 			],
@@ -107,23 +111,6 @@
 	},
 	"buffers":
 	[
-		{
-			"contents": "#include <Arduino.h>\n#include <SPI.h>\n#include <Wire.h>\n#include <Adafruit_GFX.h>\n#include <Adafruit_SSD1306.h>\n#include <Audio.h>\n#include <Encoder.h>\n\n/*AudioInputI2S i2sInput;\nAudioAnalyzeNoteFrequency notefreq; // AUDIO_GUITARTUNER_BLOCKS = 9\nAudioAnalyzePeak peak;\nAudioAnalyzeRMS rms;\nAudioConnection patchCord1(i2sInput, 1, notefreq, 0);\nAudioConnection patchCord2(i2sInput, 1, peak, 0);\nAudioConnection patchCord3(i2sInput, 1, rms, 0);*/\n\n// AudioSynthToneSweep tonesweep1;\n// AudioOutputI2S i2sOuptut;\n// AudioConnection patchCord3(tonesweep1, 0, i2sOuptut, 0);\n// AudioConnection patchCord4(tonesweep1, 0, i2sOuptut, 1);\n\n// AudioControlSGTL5000 audioAdaptor;\n\n#define PIN_OLED_DC        0\n#define PIN_OLED_RESET     1\n#define PIN_OLED_CS        2\n#define PIN_CV_CS          3\n#define PIN_ROTARY_1       4\n#define PIN_ROTARY_2       5\n#define PIN_ROTARY_BUTTON  6\n#define PIN_BYPASS_SWITCH  10\n#define PIN_SR_CS          8\n#define PIN_TAP_BUTTON     17\n#define PIN_LED_1          21\n#define PIN_LED_2          20\n#define EXP_1              A2\n#define EXP_2              A1\n\n#define SEND_ROTARY_VALUE  0\n#define SEND_ROTARY_BUTTON 1\n#define SEND_TAP_BUTTON    2\n#define SEND_BYPASS_SWITCH 3\n#define SEND_EXP_1         4\n#define SEND_EXP_2         5\n#define SEND_TOTAL         6\n\n#define SET_CV             0\n#define SET_AUDIO_ROUTE    1\n#define SET_LED            2\n#define SET_OLED           3 // not used yet\n#define SET_BB_OLED        7 // not used yet\n#define SET_BB_LED_UPPER   8 // not used yet\n#define SET_BB_LED_LOWER   9\n\n#define SERIAL_RECEIVE_MAX 10\n\n#define BB_I2C_CHANNEL 8\n\nstatic const int CVS[] = {5, 6, 8, 7, 1, 4, 2, 3};\n\nstatic const int LEDS[] = {PIN_LED_1, PIN_LED_2};\n\nstatic const int LED_BRIGHTNESS_TABLE[] = {\n  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,\n  0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02,\n  0x02, 0x02, 0x03, 0x03, 0x03, 0x03, 0x03, 0x03, 0x04, 0x04, 0x04, 0x04, 0x04, 0x05, 0x05, 0x05,\n  0x05, 0x06, 0x06, 0x06, 0x07, 0x07, 0x07, 0x08, 0x08, 0x08, 0x09, 0x09, 0x0A, 0x0A, 0x0B, 0x0B,\n  0x0C, 0x0C, 0x0D, 0x0D, 0x0E, 0x0F, 0x0F, 0x10, 0x11, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17,\n  0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1F, 0x20, 0x21, 0x23, 0x24, 0x26, 0x27, 0x29, 0x2B, 0x2C,\n  0x2E, 0x30, 0x32, 0x34, 0x36, 0x38, 0x3A, 0x3C, 0x3E, 0x40, 0x43, 0x45, 0x47, 0x4A, 0x4C, 0x4F,\n  0x51, 0x54, 0x57, 0x59, 0x5C, 0x5F, 0x62, 0x64, 0x67, 0x6A, 0x6D, 0x70, 0x73, 0x76, 0x79, 0x7C,\n  0x7F, 0x82, 0x85, 0x88, 0x8B, 0x8E, 0x91, 0x94, 0x97, 0x9A, 0x9C, 0x9F, 0xA2, 0xA5, 0xA7, 0xAA,\n  0xAD, 0xAF, 0xB2, 0xB4, 0xB7, 0xB9, 0xBB, 0xBE, 0xC0, 0xC2, 0xC4, 0xC6, 0xC8, 0xCA, 0xCC, 0xCE,\n  0xD0, 0xD2, 0xD3, 0xD5, 0xD7, 0xD8, 0xDA, 0xDB, 0xDD, 0xDE, 0xDF, 0xE1, 0xE2, 0xE3, 0xE4, 0xE5,\n  0xE6, 0xE7, 0xE8, 0xE9, 0xEA, 0xEB, 0xEC, 0xED, 0xED, 0xEE, 0xEF, 0xEF, 0xF0, 0xF1, 0xF1, 0xF2,\n  0xF2, 0xF3, 0xF3, 0xF4, 0xF4, 0xF5, 0xF5, 0xF6, 0xF6, 0xF6, 0xF7, 0xF7, 0xF7, 0xF8, 0xF8, 0xF8,\n  0xF9, 0xF9, 0xF9, 0xF9, 0xFA, 0xFA, 0xFA, 0xFA, 0xFA, 0xFB, 0xFB, 0xFB, 0xFB, 0xFB, 0xFB, 0xFC,\n  0xFC, 0xFC, 0xFC, 0xFC, 0xFC, 0xFC, 0xFC, 0xFC, 0xFD, 0xFD, 0xFD, 0xFD, 0xFD, 0xFD, 0xFD, 0xFD,\n  0xFD, 0xFD, 0xFD, 0xFD, 0xFD, 0xFD, 0xFD, 0xFE, 0xFE, 0xFE, 0xFE, 0xFE, 0xFE, 0xFE, 0xFF, 0xFF\n};\n\n// Adafruit_SSD1306 display(PIN_OLED_DC, PIN_OLED_RESET, PIN_OLED_CS);\n\nEncoder rotary(PIN_ROTARY_1, PIN_ROTARY_2);\n\n//\n// CV\n//\n\nvoid setCV(long chn, long val) {\n  int h = (chn << 4) | (val >> 6);\n  int l = (val << 2);\n  SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE0));\n  digitalWrite(PIN_CV_CS, LOW);\n  SPI.transfer(h);\n  SPI.transfer(l);\n  SPI.endTransaction();\n  digitalWrite(PIN_CV_CS, HIGH);\n  digitalWrite(PIN_CV_CS, LOW);\n}\n\n//\n// Shift register (tap + relay)\n//\n\nboolean audioOutputPath = 0; // default to off\nint activeTaps = 63; // all taps\nint shiftRegisterState = activeTaps;\n\nvoid syncSR() {\n  SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE0));\n  digitalWrite(PIN_SR_CS,LOW);\n  SPI.transfer(shiftRegisterState);\n  SPI.endTransaction();\n  digitalWrite(PIN_SR_CS,HIGH);\n  digitalWrite(PIN_SR_CS,LOW);\n}\n\n// void setSR(int id, boolean value) {\n//   if(value) {\n//     activeTaps |= (1u << id);\n//   } else {\n//     activeTaps &= ~(1u << id);\n//   }\n// }\n\nvoid setAudioRoute(boolean value) {\n  if(value) {\n    shiftRegisterState |= 128;\n  } else {\n    shiftRegisterState &= 127;\n  }\n  syncSR();\n}\n\n//\n// LEDs\n//\n\nvoid setLed(int pin, int brightness) {\n  analogWrite(pin, 255); //LED_BRIGHTNESS_TABLE[brightness]);\n}\n\n//\n// Button board\n//\n\nvoid sendButtonBoardMessage(const char * data, int len) {\n  Wire.beginTransmission(BB_I2C_CHANNEL);\n  Wire.write(data, len);\n  Wire.endTransmission();\n}\n\n//\n// Serial send\n//\n\nint serialSendMemory[SEND_TOTAL] = {};\n\nvoid serialSend(int id, int value) {\n  if(value == serialSendMemory[id]) return;\n  Serial.print(id);\n  Serial.print(':');\n  Serial.println(value);\n  serialSendMemory[id] = value;\n}\n\n//\n// Serial receive\n//\n\nvoid serialReceive(const char * data, int len) {\n  const char * valueString = data + 3;\n  int target = data[0] - '0';\n  int subtarget = data[1] - '0';\n\n  switch(target) {\n    case SET_CV:\n      setCV(CVS[subtarget], atoi(valueString));\n      break;\n\n    case SET_AUDIO_ROUTE:\n      setAudioRoute(atoi(valueString));\n      break;\n\n    case SET_LED:\n      setLed(LEDS[subtarget], atoi(valueString));\n      break;\n\n    case SET_BB_LED_UPPER:\n    case SET_BB_LED_LOWER:\n    case SET_BB_OLED:\n      sendButtonBoardMessage(data, len);\n      break;\n\n    default:\n      break;\n  }\n}\n\nvoid serialReceiveByte(const byte inByte) {\n  static char inputLine[SERIAL_RECEIVE_MAX];\n  static unsigned int inputPos = 0;\n\n  switch(inByte) {\n    case '\\n':\n      inputLine[inputPos] = 0;\n      serialReceive(inputLine, inputPos + 1);\n      inputPos = 0;\n      break;\n\n    case '\\r':\n      break;\n\n    default:\n      if(inputPos < (SERIAL_RECEIVE_MAX - 1))\n        inputLine[inputPos++] = inByte;\n      break;\n  }\n}\n\n//\n// Setup\n//\n\nvoid setup() {\n  // SPI\n  SPI.setMOSI(7);\n  SPI.setSCK(14);\n\n  // SPI select\n  pinMode(PIN_CV_CS, OUTPUT);\n  pinMode(PIN_SR_CS, OUTPUT);\n  digitalWrite(PIN_CV_CS, HIGH);\n  digitalWrite(PIN_SR_CS, HIGH);\n\n  // LEDs\n  pinMode(PIN_LED_1, OUTPUT);\n  pinMode(PIN_LED_2, OUTPUT);\n  digitalWrite(PIN_LED_1, LOW);\n  digitalWrite(PIN_LED_2, LOW);\n\n  // buttons\n  pinMode(PIN_ROTARY_BUTTON, INPUT_PULLUP);\n  pinMode(PIN_TAP_BUTTON, INPUT_PULLUP);\n  pinMode(PIN_BYPASS_SWITCH, INPUT_PULLUP);\n\n  // audio\n  // AudioMemory(90);\n  // notefreq.begin(0.03);\n\n  // audioAdaptor.enable();\n  // audioAdaptor.inputSelect(AUDIO_INPUT_LINEIN);\n  // audioAdaptor.micGain(0);\n  // audioAdaptor.lineInLevel(12);\n  // audioAdaptor.lineOutLevel(31);\n  // audioAdaptor.dacVolume(0.9);\n  // audioAdaptor.muteHeadphone();\n  // audioAdaptor.adcHighPassFilterDisable();\n\n  // serial\n  Serial.begin(115200);\n  serialReceiveByte('\\n');\n\n  // i2c\n  Wire.begin();\n\n  // display\n  // display.begin(SSD1306_SWITCHCAPVCC);\n  // display.clearDisplay();\n  // display.display();\n\n  // test tone\n  // setAudioRoute(true);\n  // tonesweep1.play(1.0, 50.0, 1000.0, 100.0);\n}\n\nunsigned long time;\nunsigned long prevTime;\nunsigned long ticks;\n\nfloat peakValue = 0;\nfloat rmsValue = 0;\n\nvoid updateDisplay() {\n  /*display.clearDisplay();\n  display.setTextColor(INVERSE);\n  display.setTextSize(2);\n  display.setCursor(0,0);\n  display.println(\":)\");\n  display.setTextSize(1);\n  display.println(ticks);\n  display.setTextSize(1);\n  display.println(peakValue);\n  display.println(rmsValue);\n  display.println(audioOutputPath);\n  display.display();*/\n}\n\nvoid loop() {\n  time = millis();\n  if(time == prevTime) return;\n\n  // main loop once per 1ms = 1000Hz\n  prevTime = time;\n  ticks++;\n\n  while(Serial.available () > 0) {\n    serialReceiveByte(Serial.read());\n  }\n\n  // once per 8ms = ~125fps\n  if(ticks % 1024 == 0) {\n    updateDisplay();\n  }\n\n  // once per 8ms = ~125Hz\n  if(ticks % 8 == 0) {\n    serialSend(SEND_ROTARY_VALUE, rotary.read());\n    serialSend(SEND_ROTARY_BUTTON, digitalRead(PIN_ROTARY_BUTTON) == LOW);\n    serialSend(SEND_BYPASS_SWITCH, digitalRead(PIN_BYPASS_SWITCH) == LOW);\n    serialSend(SEND_TAP_BUTTON, digitalRead(PIN_TAP_BUTTON) == LOW);\n\n    setLed(PIN_LED_1, digitalRead(PIN_BYPASS_SWITCH) == LOW ? 0 : 128);\n  }\n\n  // once per 128ms = ~8Hz\n  if(ticks % 128 == 0) {\n    analogRead(EXP_1);\n    serialSend(SEND_EXP_1, analogRead(EXP_1));\n  }\n\n  // once per 128ms = ~8Hz\n  if((ticks + 64) % 128 == 0) {\n    analogRead(EXP_2);\n    serialSend(SEND_EXP_2, analogRead(EXP_2));\n  }\n\n  // once per 4ms = ~250Hz\n  /*if(ticks % 4 == 0) {\n    if(peak.available()) {\n      peakValue = peak.read();\n    }\n    if(rms.available()) {\n      rmsValue = rms.read();\n    }\n  }*/\n\n  // once per 1024ms = ~1Hz\n  if(ticks % 1024 == 0) {\n    Serial.print(\"wire got \");\n    Wire.requestFrom(BB_I2C_CHANNEL, 6);\n    while (Wire.available()) {\n      char c = Wire.read();\n      Serial.print(c);\n    }\n    Serial.println(\".\");\n  }\n\n  // cv += (16 * cvDir);\n  // if(cv > 1023)\n  // {\n  //   cvDir = -1;\n  //   cv = 1023;\n  // } else if(cv < 0) {\n  //   cvDir = 1;\n  //   cv = 0;\n  // }\n\n  // for(int j = 0; j < 8; j++)\n  //   setCV(j, cv);\n\n  // setSR(ticks >> 5);\n\n  // setLed(PIN_LED_1, (ticks << 2) & 255);\n  // setLed(PIN_LED_2, 252 - ((ticks << 2) & 255));\n\n\n\n\n  // if(notefreq.available()) {\n  //     float newFreq = notefreq.read();\n  //     freq += (newFreq - freq) * 0.3;\n  //     pitchIdentifier.identify(freq);\n  //     pitch = pitchIdentifier.pitch();\n  //     display.setCursor(64,0);\n  //     display.println(freq);\n  // }\n\n\n\n  // int cpuusage = AudioProcessorUsageMax();\n  // display.print(\"CPU: \");\n  // display.println(cpuusage);\n}\n",
-			"settings":
-			{
-				"buffer_size": 9720,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/main.cpp",
-			"settings":
-			{
-				"buffer_size": 9629,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -234,28 +221,32 @@
 	"expanded_folders":
 	[
 		"/home/damien/projects/arduino/Ctrl",
-		"/home/damien/projects/arduino/Ctrl/src"
+		"/home/damien/projects/arduino/Ctrl/src",
+		"/home/damien/projects/arduino/Ctrl/src/pitch",
+		"/home/damien/projects/arduino/Ctrl/src/test"
 	],
 	"file_history":
 	[
+		"/home/damien/projects/arduino/Ctrl/lib/Audio/analyze_notefreq.h",
 		"/home/damien/projects/arduino/Ctrl/src/main.cpp",
+		"/home/damien/projects/arduino/Ctrl/src/test/audio-display-dac-shift.cpp.test",
+		"/home/damien/projects/arduino/Ctrl/src/test/boxed-test.cpp.test",
+		"/home/damien/projects/arduino/Ctrl/src/test/audio-display-dac-shift-led.cpp.test",
+		"/home/damien/projects/arduino/Ctrl/src/test/hardware-spi-dac.cpp.test",
+		"/home/damien/projects/arduino/Ctrl/lib/Audio/analyze_notefreq.cpp",
 		"/home/damien/projects/arduino/Ctrl/.gitignore",
 		"/home/damien/projects/arduino/Ctrl/lib/SparkFun_ZX_Distance_and_Gesture_Sensor_Arduino_Library-master/examples/I2C_Gesture_Demo/I2C_Gesture_Demo.ino",
 		"/home/damien/projects/arduino/Ctrl/lib/SparkFun_ZX_Distance_and_Gesture_Sensor_Arduino_Library-master/src/ZX_Sensor.cpp",
 		"/home/damien/projects/arduino/Ctrl/lib/SparkFun_ZX_Distance_and_Gesture_Sensor_Arduino_Library-master/src/ZX_Sensor.h",
 		"/home/damien/projects/arduino/Ctrl/platformio.ini",
 		"/tmp/Deviot/1610751263/src/1610751263.ino",
-		"/home/damien/projects/arduino/Ctrl/src/test/boxed-test.cpp.test",
-		"/home/damien/projects/arduino/Ctrl/src/test/audio-display-dac-shift-led.cpp.test",
 		"/home/damien/projects/arduino/Ctrl/platformio.sublime-project",
 		"/home/damien/Desktop/What accomplishments are you most proud of? Detail",
-		"/home/damien/projects/arduino/Ctrl/src/test/audio-display-dac-shift.cpp.test",
 		"/home/damien/projects/arduino/Ctrl/src/test/shift.cpp.test",
 		"/home/damien/projects/arduino/Ctrl/src/test/audio-display-dac.cpp.test",
 		"/home/damien/projects/parcels.sublime-project",
 		"/home/damien/projects/Ctrl",
 		"/home/damien/projects/arduino/Ctrl/src/test/display.cpp.test",
-		"/home/damien/projects/arduino/Ctrl/src/test/hardware-spi-dac.cpp.test",
 		"/home/damien/projects/arduino/Ctrl/src/test/dac.cpp.test",
 		"/home/damien/projects/arduino/Ctrl/lib/SerialFlash/extras/rawfile-uploader.py",
 		"/home/damien/projects/arduino/Ctrl/src/test/blink.cpp.test",
@@ -363,13 +354,11 @@
 		"/home/damien/projects/parcels/packages/parcels/src/parcelData/__test__/updateChildKeys-test.js",
 		"/home/damien/projects/parcels/packages/parcels/src/parcel/__test__/ValueParcel-test.js",
 		"/home/damien/projects/parcels/packages/parcels/src/react/__test__/PureMapper-test.js",
-		"/home/damien/projects/parcels/packages/parcels/src/react/__test__/PureParcel-test.js",
-		"/home/damien/projects/parcels/packages/parcels/src/parcelId/Id.js",
-		"/home/damien/projects/parcels/packages/parcels/src/parcel/ValueParcel.js"
+		"/home/damien/projects/parcels/packages/parcels/src/react/__test__/PureParcel-test.js"
 	],
 	"find":
 	{
-		"height": 80.0
+		"height": 75.0
 	},
 	"find_in_files":
 	{
@@ -384,134 +373,134 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"rms",
-			"AudioAnalyzeRMS",
-			"AudioAnalyzePeak",
-			"rmsValue",
-			"setCV",
-			"CVS",
-			"setCV",
-			"CVS",
-			"route",
+			"setDisplayState",
+			"peakValue",
+			"displa",
+			"GUITART",
+			"AUDIO_BL",
 			"setAudioRoute",
-			"SET_AUDIO_ROUTE",
-			"AUDIO",
-			"setCV",
-			"128",
-			"setCV",
-			"1000",
-			"LOW",
-			"digitalWrite",
-			"PIN_LED_1",
-			"setLed",
+			"tonesweep1",
+			"1000000",
+			"CVS",
+			"SET_CV",
+			", ",
 			"LED_BRIGHTNESS_TABLE",
-			"display",
-			"disp",
-			"audioAdaptor",
-			"notefr",
-			"peak",
-			"i2sInput",
-			"updateDisplay",
-			"dis",
-			"LED",
-			"SET_BB_LED_UPPER",
-			"SET_BB_OLED",
-			"SET_BB_LED_UPPER",
-			"sendButtonBoardMessage",
-			"SEND_ROTARY_BUTTON",
-			"sendButtonBoardMessage",
-			"serialReceive",
-			"sendButtonBoardMessage",
-			"serialReceive",
-			"sendButtonBoardMessage",
-			"serialReceive",
-			"sendButtonBoardMessage",
-			"beginTransaction",
-			"sendButtonBoardMessage",
-			"SET_BB_LED",
-			"SET_BB_OLED",
-			"SET_BB_LED",
-			"SET_BB_0LED",
-			"SET_BB_LED",
-			"serialReceive",
-			"sendButtonBoardMessage",
-			"BB_I2C_CHANNEL",
-			"SERIAL_RECEIVE_MAX",
-			"serialReceiveByte",
-			"BB_I2C_CHANNEL",
-			"CTRL_BUTTON_BOARD_I2C_CHANNEL",
-			"serialReceiveByte",
-			"SET_BB_LED",
-			"SET_AUDIO_ROUTE",
+			"setLed",
 			"SET_LED",
-			"CTRL_BUTTON_BOARD_I2C_CHANNEL",
-			"Wire",
-			"Serial",
-			"Serial.",
-			"Wire",
-			"Wire.",
-			"display.",
-			"audioOutputPath",
-			"peak",
-			"peakValue",
-			"rmsValue",
-			"peakValue",
+			"SET_OLED",
+			"SET_LED",
+			"SET_AUDIO_ROUTE",
 			"serialReceive",
 			"setAudioRoute",
-			"audioOutputPath",
+			"serialSend",
+			"INPUT",
+			"TAP",
+			"SEND_ROTARY_BUTTON",
+			"PIN_BUTTON_TAP",
+			"count",
+			"audioAdaptor",
+			"SET_BB_LED_UPPER",
+			"SET_OLED",
+			"analogWrite",
+			"PIN_BUTTON_TAP",
+			"setSR",
+			"PIN_SR_CS",
+			"syncSR",
+			"oscope",
+			"osco",
+			"peak",
+			"notefreq",
+			"syncSR",
+			"();\n",
+			"AUDIO_GUITARTUNER_BLOCKS",
+			"GUITAR",
+			"syncSR",
+			"setSR",
+			"setSr",
+			"setSR",
+			"MSBFIRST",
+			"syncSR",
+			"setCV",
+			"syncSR",
+			"setSR",
+			"shiftRegisterState",
+			"PIN_SR_CS",
+			"LOW",
+			"syncSR",
+			"SPI.",
+			"syncSR",
+			"PIN_SR_CS",
+			"HIGH",
+			"PIN_SR_CS",
+			"MSBFIRST",
 			"setAudioRoute",
 			"syncSR",
-			"i2s1",
+			"1000000",
+			"syncSR",
 			"setAudioRoute",
-			"SET_AUDIO_ROUTE",
-			"setSR",
-			"SET_CV",
-			"SET_TAP",
-			"setSR",
-			"shiftRegister",
-			"PIN_LED_2",
-			"setLed",
-			"Serial.",
-			"setSR",
-			"CVS",
-			"PIN_CV_CS",
-			"4000000",
-			"'",
+			"peak",
+			"setAudioRoute",
 			"setCV",
-			"char",
-			"SET_LED",
-			"things",
-			"3",
-			"shiftRegister",
-			"'",
-			"SEND",
-			"MAX_INPUT",
-			"input_pos",
-			"input_line",
-			"MAX_INPUT",
-			"receiveByte",
-			"prevMillis",
-			"Serial.",
+			"100000",
+			"1000000",
+			"100000",
+			"1000000",
+			"syncSR",
+			"shiftRegisterState",
+			"syncSR",
+			"shiftRegisterState",
+			"syncSR",
+			"setAudioRoute",
 			"serialSend",
-			"tempBuffer",
-			"newData",
-			"receivedChars",
-			"newData",
-			"numChars",
-			"        ",
-			"serialReceive",
-			"receiveValue",
-			"sendValue",
-			"peak",
-			"WHITE",
-			"setText",
-			"serialData",
-			"delayTime",
-			"peak",
+			"Serial",
+			"serialReceiveByte",
+			"setAu",
+			"oscope",
+			"notefreq",
+			"setAudioRoute",
+			"syncSR",
+			"setAudioRoute",
+			"syncSR",
+			"setAudioRoute",
+			"setAudioRo",
+			"tonesweep1",
+			"// ",
+			"setAudioRoute",
+			"syncSR",
+			"setAudioRoute",
+			"serialSend",
+			"Serial",
+			"Serial.print(\"wire got \");\n    // Wire.requestFrom(BB_I2C_CHANNEL, 6);\n    // while (Wire.available()) {\n    //   char c = Wire.read();\n    //   Serial.print(c);\n    // }\n    // Serial.println(\".\");",
+			"PIN_BYPASS_SWITCH",
 			"SEND_BYPASS_SWITCH",
-			"SEND_TOTAL",
-			"SEND_TAP_BUTTON",
-			"32"
+			"OSCOPE_BASE_HZ",
+			"OSCOPE_NATURAL_HZ",
+			"rate",
+			"setRate",
+			"++;\n",
+			"03",
+			"setRate",
+			"display()",
+			"0",
+			"rate",
+			"OSCOPE_NATURAL_HZ",
+			"(int)",
+			"index",
+			"table",
+			"lastBlock",
+			"AudioAnalyzeLogger",
+			"nextStep",
+			"stepRatio",
+			"TUNER_BUCKETS_TOTAL",
+			"// ",
+			"serialReceive",
+			"setLed",
+			"LEDS",
+			"atoi",
+			"SET_LED",
+			"serialReceive",
+			"SERIAL_RECEIVE_MAX",
+			"serialReceive"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -529,72 +518,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9720,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7453,
-								7453
-							]
-						],
-						"settings":
-						{
-							"default_dir": "/home/damien/projects/arduino/Ctrl/src",
-							"syntax": "Packages/Deviot (Arduino IDE)/deviot.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 9425.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/main.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9629,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								320,
-								320
-							]
-						],
-						"settings":
-						{
-							"editorconfig": true,
-							"ensure_newline_at_eof_on_save": true,
-							"syntax": "Packages/Deviot (Arduino IDE)/deviot.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true,
-							"trim_trailing_white_space_on_save": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 107.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -635,7 +560,7 @@
 	},
 	"output.deviot":
 	{
-		"height": 306.0
+		"height": 288.0
 	},
 	"output.find_results":
 	{

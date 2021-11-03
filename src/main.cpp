@@ -1,58 +1,13 @@
 #include <Arduino.h>
 #include <SPI.h>
 #include <Wire.h>
+#include <Audio.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
-#include <Audio.h>
 #include <Encoder.h>
-
-//
-// oscilloscope
-//
-
-const int OSCOPE_TABLE_SIZE = 128;
-const float OSCOPE_BASE_HZ = AUDIO_SAMPLE_RATE / OSCOPE_TABLE_SIZE;
-
-class AudioOscilloscope : public AudioStream {
-  public:
-    AudioOscilloscope(void): AudioStream(1, inputQueueArray) {}
-
-    volatile int16_t table[OSCOPE_TABLE_SIZE];
-
-    void update(void) {
-      audio_block_t *block;
-      block = receiveReadOnly();
-      if (!block) return;
-
-      while(readIndex < OSCOPE_TABLE_SIZE) {
-        table[writeIndex] = block->data[(int)readIndex];
-        readIndex += readRate;
-        writeIndex++;
-        if(writeIndex >= OSCOPE_TABLE_SIZE) {
-          writeIndex = 0;
-        }
-      }
-      readIndex -= OSCOPE_TABLE_SIZE;
-
-      transmit(block);
-      release(block);
-    }
-
-    void setRate(float freq) {
-      if(freq > 0.0) {
-        float newReadRate = fmod(OSCOPE_BASE_HZ / freq * 4.0, OSCOPE_TABLE_SIZE);
-        __disable_irq();
-        readRate = newReadRate;
-        __enable_irq();
-      }
-    }
-
-  private:
-    audio_block_t *inputQueueArray[1];
-    int writeIndex = 0;
-    float readIndex = 0.0;
-    float readRate = 1.0;
-};
+#include "ui.h"
+#include "AudioOscilloscope.h"
+#include "Scale.h"
 
 //
 // audio patching
@@ -63,15 +18,15 @@ AudioAnalyzeNoteFrequency notefreq;
 AudioOscilloscope oscope;
 
 // https://forum.pjrc.com/threads/32252-Different-Range-FFT-Algorithm/page4
-AudioAnalyzePeak peak;
+AudioAnalyzePeak peakAnalyzer;
 AudioConnection patchCord1(i2sInput, 1, notefreq, 0);
-AudioConnection patchCord2(i2sInput, 1, peak, 0);
+AudioConnection patchCord2(i2sInput, 1, peakAnalyzer, 0);
 AudioConnection patchCord3(i2sInput, 1, oscope, 0);
 
-AudioSynthToneSweep tonesweep1;
-AudioOutputI2S i2sOuptut;
-AudioConnection patchCord4(tonesweep1, 0, i2sOuptut, 0);
-AudioConnection patchCord5(tonesweep1, 0, i2sOuptut, 1);
+// AudioSynthToneSweep tonesweep1;
+// AudioOutputI2S i2sOuptut;
+// AudioConnection patchCord4(tonesweep1, 0, i2sOuptut, 0);
+// AudioConnection patchCord5(tonesweep1, 0, i2sOuptut, 1);
 
 AudioControlSGTL5000 audioAdaptor;
 
@@ -138,12 +93,30 @@ static const int LED_BRIGHTNESS_TABLE[] = {
 };
 
 //
-// peripherals
+// scale
+//
+
+Scale scale;
+
+//
+// peripherals and UI
 //
 
 Adafruit_SSD1306 display(PIN_OLED_DC, PIN_OLED_RESET, PIN_OLED_CS);
 
 Encoder rotary(PIN_ROTARY_1, PIN_ROTARY_2);
+
+UI ui(&display);
+
+//
+// state
+//
+
+float peak = 0;
+float freq = 0;
+bool freqFound = false;
+int exp1Value;
+int exp2Value;
 
 //
 // CV
@@ -328,7 +301,6 @@ void serialReceiveByte(const byte inByte) {
 //   tunerBuckets[];
 // }
 
-
 //
 // Setup
 //
@@ -382,6 +354,15 @@ void setup() {
   display.clearDisplay();
   display.display();
 
+  // ui refs
+  ui.refTunerOscopeTable = oscope.table;
+  ui.refTunerFreq = &freq;
+  ui.refTunerFreqFound = &freqFound;
+  ui.refTunerPeak = &peak;
+  ui.refScale = &scale;
+  ui.refExp1Value = &exp1Value;
+  ui.refExp2Value = &exp2Value;
+
   // route
   setAudioRoute(false);
 
@@ -391,101 +372,94 @@ void setup() {
   }
 
   // test tone
-  tonesweep1.play(1.0, 500.0, 1000.0, 100.0);
+  // tonesweep1.play(1.0, 500.0, 1000.0, 100.0);
 }
 
-unsigned long time;
-unsigned long prevTime;
 unsigned long ticks;
+bool rotaryButtonPressedPrev;
+int rotaryValue;
 
-float peakValue = 0;
-int freq = 0;
-
-void updateDisplay() {
-  display.clearDisplay();
-  display.setTextColor(INVERSE);
-  display.setCursor(0,0);
-  display.setTextSize(1);
-  display.print(ticks);
-  display.print(" ");
-  // for(int i = 0; i < 10; i++) {
-  //   if(peakValue * 10 > i) {
-  //     display.print("-");
-  //   } else {
-  //     display.print(" ");
-  //   }
-  // }
-  // display.println("");
-  display.print(freq);
-  display.println(" Hz");
-
-  for(int i = 0; i < 128; i++) {
-    int y = 32 - (oscope.table[i] >> 10);
-    display.drawPixel(i, y, WHITE);
-  }
-
-  int cpuusage = AudioProcessorUsageMax();
-  display.print("CPU: ");
-  display.println(cpuusage);
-
-  display.display();
-}
+//
+// loop
+//
 
 void loop() {
-  time = millis();
-  if(time == prevTime) return;
-
-  // main loop once per 1ms = 1000Hz
-  prevTime = time;
-  ticks++;
+  ticks += 3;
 
   while(Serial.available () > 0) {
     serialReceiveByte(Serial.read());
   }
 
-  // once per 8ms = ~125fps
-  if(ticks % 8 == 0) {
-    updateDisplay();
-  }
-
   // once per 8ms = ~125Hz
   if(ticks % 8 == 0) {
-    serialSend(SEND_ROTARY_VALUE, rotary.read());
-    serialSend(SEND_ROTARY_BUTTON, digitalRead(PIN_ROTARY_BUTTON) == LOW);
+
+    // rotary button pressed
+    bool rotaryButtonPressed = digitalRead(PIN_ROTARY_BUTTON) == LOW;
+    if(!rotaryButtonPressedPrev && rotaryButtonPressed) {
+        ui.onPress();
+    } else {
+        // rotary position
+        int rotaryRead = rotary.read();
+        if(rotaryRead < 0) {
+            rotaryValue = -((-rotaryRead + 2) / 4);
+        } else {
+            rotaryValue = (rotaryRead + 1) / 4;
+        }
+        ui.setCursor(rotaryValue);
+    }
+    rotaryButtonPressedPrev = rotaryButtonPressed;
+
+    // tap button
+    bool tap = digitalRead(PIN_TAP_BUTTON) == LOW;
+    if(tap) {
+      setLed(PIN_LED_2, 96);
+    } else {
+      setLed(PIN_LED_2, 0);
+    }
+
+    // send serial values
+    serialSend(SEND_ROTARY_VALUE, rotaryValue);
+    serialSend(SEND_ROTARY_BUTTON, rotaryButtonPressed);
     serialSend(SEND_BYPASS_SWITCH, digitalRead(PIN_BYPASS_SWITCH) == LOW);
-    serialSend(SEND_TAP_BUTTON, digitalRead(PIN_TAP_BUTTON) == LOW);
+    serialSend(SEND_TAP_BUTTON, tap);
 
     setLed(PIN_LED_1, digitalRead(PIN_BYPASS_SWITCH) == LOW ? 0 : 128);
   }
 
+  // once per 8ms = ~125fps
+  if(ticks % 8 == 0) {
+    ui.update(ticks);
+  }
+
   // once per 32ms = ~8Hz
   if(ticks % 32 == 0) {
-    // analogRead(EXP_1);
-    // serialSend(SEND_EXP_1, analogRead(EXP_1));
+    analogRead(EXP_1);
+    exp1Value = analogRead(EXP_1);
+    serialSend(SEND_EXP_1, exp1Value);
   }
 
   // once per 32ms = ~8Hz
   if((ticks + 16) % 32 == 0) {
-    // analogRead(EXP_2);
-    // int read = analogRead(EXP_2);
-    // serialSend(SEND_EXP_2, read);
+    analogRead(EXP_2);
+    exp2Value = analogRead(EXP_2);
+    serialSend(SEND_EXP_2, exp2Value);
 
-    //setCV(CVS[0], read); // dmm
-    //setCV(CVS[1], read); // pitchfork
-    //setCV(CVS[2], read);
-    //setCV(CVS[3], read);
-    //setCV(CVS[4], read); // wizard
-    //setCV(CVS[5], read); // bigsky
-    //setCV(CVS[4], read);
-    //setCV(CVS[5], read);
-    //setCV(CVS[6], read);
-    //setCV(CVS[7], read);
+    // setCV(CVS[0], read); // dmm
+    // setCV(CVS[1], read); // pitchfork
+    // setCV(CVS[2], read);
+    // setCV(CVS[3], read);
+    // setCV(CVS[4], read); // wizard
+    // setCV(CVS[5], read); // bigsky
+    // setCV(CVS[4], read);
+    // setCV(CVS[5], read);
+    // setCV(CVS[6], read);
+    // setCV(CVS[7], read);
   }
 
   // once per 4ms = ~250Hz
   if(ticks % 4 == 0) {
-    if(peak.available()) {
-      peakValue = peak.read();
+    if(peakAnalyzer.available()) {
+      peak = peakAnalyzer.read();
     }
   }
 
@@ -500,8 +474,13 @@ void loop() {
     Serial.println(".");
   }
 
-  if(notefreq.available() && peakValue > 0.1 && notefreq.probability() > 0.8) {
-    freq = notefreq.read();
-    oscope.setRate(freq);
+  // once per 4ms = ~250Hz
+  if((ticks + 2) % 4 == 0) {
+    freqFound = peak > 0.05 && notefreq.probability() > 0.8;
+    if(notefreq.available() && freqFound) {
+      freq = notefreq.read();
+      scale.calculateNearestPitch(freq);
+      oscope.setRate(scale.nearestHz);
+    }
   }
 }
